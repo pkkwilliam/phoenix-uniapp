@@ -1,0 +1,38 @@
+<template>
+  <view :class="colorClass">
+    <u-icon
+      class="icon-container"
+      custom-prefix="phoenix-custom-icon"
+      name="dollar"
+      size="22"
+      :top="2"
+    />
+    <text class="h2">{{ value }}</text>
+  </view>
+</template>
+
+<script>
+export default {
+  computed: {
+    colorClass() {
+      return this.priceColor === "primary"
+        ? "row-center-container price-primary"
+        : "row-center-container price-secondary";
+    },
+  },
+  props: {
+    priceColor: {
+      default: "primary",
+      type: String,
+    },
+    type: {},
+    value: {
+      default: 0,
+      type: Number,
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+</style>

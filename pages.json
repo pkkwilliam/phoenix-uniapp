@@ -12,9 +12,272 @@
     {
       "path": "pages/index/tabbar",
       "style": {
+        "navigationBarTitleText": "Tabbar",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/landing/landingTabsSwiperPage",
+      "style": {
         "disableScroll": true,
         "navigationBarTitleText": "摸魚",
         "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/addressFormPage",
+      "style": {
+        "navigationBarTitleText": "收貨地址"
+      }
+    },
+    {
+      "path": "pages/addressSelectionPage",
+      "style": {
+        "navigationBarTitleText": "收貨地址"
+      }
+    },
+    {
+      "path": "pages/bankAccount/bankAccountFormPage",
+      "style": {
+        "navigationBarTitleText": "銀行賬戶"
+      }
+    },
+    {
+      "path": "pages/bankAccount/myBankAccountPage",
+      "style": {
+        "navigationBarTitleText": "銀行賬戶"
+      }
+    },
+    {
+      "path": "pages/barterOrder/barterOrderPage",
+      "style": {
+        "navigationBarTitleText": "換物訂單"
+      }
+    },
+    {
+      "path": "pages/barterOrder/barterOrderDetailPage",
+      "style": {
+        "navigationBarBackgroundColor": "#ffe24b",
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "換物訂單"
+      }
+    },
+    {
+      "path": "pages/barterRequest/barterRequestPage",
+      "style": {
+        "navigationBarTitleText": "以物換物"
+      }
+    },
+    {
+      "path": "pages/barterRequest/barterRequestDetailPage",
+      "style": {
+        "navigationBarTitleText": "以物換物"
+      }
+    },
+    {
+      "path": "pages/barterRequest/createBarterRequestPage",
+      "style": {
+        "navigationBarTitleText": "以物換物"
+      }
+    },
+    {
+      "path": "pages/business/businessPage",
+      "style": {
+        "navigationBarTitleText": "我的企業"
+      }
+    },
+    {
+      "path": "pages/business/businessFormPage",
+      "style": {
+        "navigationBarTitleText": "企業賬號表格"
+      }
+    },
+    {
+      "path": "pages/cashOut/cashOutFormPage",
+      "style": {
+        "navigationBarTitleText": "提款"
+      }
+    },
+    {
+      "path": "pages/cashOut/cashOutHistoryPage",
+      "style": {
+        "navigationBarTitleText": "提取現金歷史"
+      }
+    },
+    {
+      "path": "pages/changePasswordPage",
+      "style": {
+        "navigationBarTitleText": "更改密碼"
+      }
+    },
+    {
+      "path": "pages/chat/chatPage",
+      "style": {
+        "navigationBarTitleText": "消息"
+      }
+    },
+    {
+      "path": "pages/chat/chatMessagePage",
+      "style": {
+        "navigationBarTitleText": "消息"
+      }
+    },
+    {
+      "path": "pages/createItemPage",
+      "style": {
+        "disableScroll": true,
+        "navigationBarTitleText": "創建物品",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/developer/developerPage",
+      "style": {
+        "disableScroll": true,
+        "navigationBarTitleText": "開發人員"
+      }
+    },
+    {
+      "path": "pages/itemDetailPage",
+      "style": {
+        "navigationBarTitleText": "物品詳細"
+      }
+    },
+    {
+      "path": "pages/item/searchItemPage",
+      "style": {
+        "navigationBarTitleText": "搜索物品"
+      }
+    },
+    {
+      "path": "pages/loginPage",
+      "style": {
+        "navigationBarTitleText": "登入"
+      }
+    },
+    {
+      "path": "pages/me/myListPage",
+      "style": {
+        "navigationBarTitleText": "我發布的"
+      }
+    },
+    {
+      "path": "pages/me/myOrderPage",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "我買到的"
+      }
+    },
+    {
+      "path": "pages/me/myPage",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "我的",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/me/mySaveItemPage",
+      "style": {
+        "navigationBarTitleText": "我收藏的"
+      }
+    },
+    {
+      "path": "pages/me/mySettingPage",
+      "style": {
+        "navigationBarTitleText": "設置"
+      }
+    },
+    {
+      "path": "pages/me/mySoldPage",
+      "style": {
+        "enablePullDownRefresh": true,
+        "navigationBarTitleText": "我賣出的"
+      }
+    },
+    {
+      "path": "pages/me/myViewItemPage",
+      "style": {
+        "navigationBarTitleText": "我的足跡"
+      }
+    },
+    {
+      "path": "pages/order/barterPreOrderPage",
+      "style": {
+        "navigationBarTitleText": "購買寶貝"
+      }
+    },
+    {
+      "path": "pages/order/buyerOrderDetailPage",
+      "style": {
+        "navigationBarBackgroundColor": "#ffe24b",
+        "navigationBarTitleText": "我買到的",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/order/orderConfirmedPage",
+      "style": {
+        "navigationBarBackgroundColor": "#ffe24b",
+        "navigationBarTitleText": "交易成功",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/order/sellerOrderDetailPage",
+      "style": {
+        "navigationBarBackgroundColor": "#ffe24b",
+        "navigationBarTitleText": "我買到的",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/payment/paymentSelectionPage",
+      "style": {
+        "navigationBarTitleText": "支付方式"
+      }
+    },
+    {
+      "path": "pages/order/createOrderPage",
+      "style": {
+        "navigationBarTitleText": "購買寶貝"
+      }
+    },
+    {
+      "path": "pages/refill/refillInfoPage",
+      "style": {
+        "navigationBarTitleText": "充值方法"
+      }
+    },
+    {
+      "path": "pages/registerPage",
+      "style": {
+        "navigationBarTitleText": "注冊"
+      }
+    },
+    {
+      "path": "pages/forgotPasswordPage",
+      "style": {
+        "navigationBarTitleText": "忘記密碼"
+      }
+    },
+    {
+      "path": "pages/shipping/shippingCostEstimatePage",
+      "style": {
+        "navigationBarTitleText": "運費計算"
+      }
+    },
+    {
+      "path": "pages/workbenchPage",
+      "style": {
+        "navigationBarTitleText": "工作台PRO",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/user/userPage",
+      "style": {
+        "navigationBarTitleText": ""
       }
     },
     {
@@ -28,7 +291,7 @@
     {
       "root": "pages/componentsA",
       "pages": [
-        // 过渡动画		
+        // 过渡动画
         {
           "path": "transition/transition",
           "style": {
@@ -302,12 +565,6 @@
           "style": {
             "navigationBarTitleText": "进度条"
           }
-        },
-        {
-          "path": "tabbar/tabbar",
-          "style": {
-            "navigationBarTitleText": "Tabbar"
-          }
         }
       ]
     },
@@ -486,9 +743,10 @@
     }
   },
   "globalStyle": {
+	"backgroundColor": "#F8F8F8",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uView",
+    "navigationBarTitleText": "摸魚",
     "navigationBarBackgroundColor": "#FFFFFF",
-    "backgroundColor": "#FFFFFF"
+	"scrollIndicator": "none"
   }
 }
