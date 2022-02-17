@@ -1,7 +1,7 @@
 <template>
   <view>
     <view class="container">
-      <view class="card">
+      <view class="card medium-margin-top-spacer">
         <my-profile-form />
       </view>
       <user-setting-menu />
