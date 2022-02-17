@@ -18,7 +18,6 @@
       <view class="medium-margin-top-spacer">
         <u--textarea
           border="none"
-          class="textarea"
           v-model="description"
           placeholder="說說你的使用感受，入手渠道，轉手原因..."
           :height="120"
@@ -283,8 +282,5 @@ export default {
   font-family: monospace;
   margin: 0px;
   width: fit-content;
-}
-.textarea {
-  background-color: $u-phoenix-background-color;
 }
 </style>
