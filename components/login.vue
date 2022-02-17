@@ -36,6 +36,7 @@
 import { LOGIN } from "../service/service";
 import { startWebsocket } from "../util/chatUtil";
 import SelectableCountryCode from "../common/phoneNumber/selectableCountryCode.vue";
+import { processPushNotificationToken } from "../util/notificationUtil";
 export default {
   components: { SelectableCountryCode },
   computed: {
@@ -66,6 +67,7 @@ export default {
           this.$store.commit("setUserProfile", userProfile);
           this.$appStateService.getStatusSummary();
           startWebsocket(this.execute, this.$store);
+          processPushNotificationToken(this);
           uni.navigateBack();
         })
         .catch(() => {});

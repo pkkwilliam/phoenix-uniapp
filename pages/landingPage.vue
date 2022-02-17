@@ -10,7 +10,6 @@ import ItemCategoryWaterfall from "../components/item/itemCategoryWaterfall.vue"
 import PaginationItemDisplay from "../common/itemDisplayList/paginationItemDisplay.vue";
 import CategoryTap from "../components/category/categoryTap.vue";
 import SearchBar from "../components/searchBar.vue";
-import { processPushNotificationToken } from "../util/notificationUtil";
 
 export const ON_CHANGE_CATEGORY_EMIT = "ON_CHANGE_CATEGORY_EMIT";
 export default {
@@ -28,10 +27,7 @@ export default {
     };
   },
   methods: {},
-  mounted() {
-    console.log("at mounted");
-    processPushNotificationToken();
-  },
+  mounted() {},
 };
 </script>
 <style lang="scss" scoped>

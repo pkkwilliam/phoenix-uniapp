@@ -1,6 +1,6 @@
 <template>
   <view class="safearea-container container sticky-bottom-container-padding">
-    <view class="flex-end-center-container">
+    <view class="medium-margin-top-spacer flex-end-center-container">
       <!-- <switch-business-account class="medium-margin-right-spacer" /> -->
       <my-setting-button />
     </view>
