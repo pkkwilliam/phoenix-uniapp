@@ -2,6 +2,7 @@
   <view class="cost-input-container">
     <view class="align-end-container">
       <u-button
+        class="fit-content-button"
         size="mini"
         shape="circle"
         type="primary"
@@ -23,13 +24,14 @@
         medium-margin-bottom-spacer
       "
     >
-      <u-icon custom-prefix="phoenix-custom-icon" name="face" size="38" />
-      <text>當面交易</text>
+      <!-- <u-icon custom-prefix="phoenix-custom-icon" name="face" size="38" /> -->
+      <face-to-face-trade-tag />
     </view>
     <u-divider :half-width="500" :use-slot="false" />
     <view class="row-center-container">
-      <text>出手價</text>
+      <text class="h4">出手價</text>
       <u-input
+        border="none"
         class="textfield"
         placeholder="MOP 0.00"
         type="number"
@@ -53,8 +55,13 @@ import {
 } from "../../enum/itemShippingChargeTypes";
 import ApplicationTip from "../applicationTip.vue";
 import ShippingCostEstimateButton from "../../components/navigationButton/shipping/shippingCostEstimateButton.vue";
+import FaceToFaceTradeTag from "../../components/tag/faceToFaceTradeTag.vue";
 export default {
-  components: { ApplicationTip, ShippingCostEstimateButton },
+  components: {
+    ApplicationTip,
+    ShippingCostEstimateButton,
+    FaceToFaceTradeTag,
+  },
   computed: {
     disabledConfirmButton() {
       return !this.price;

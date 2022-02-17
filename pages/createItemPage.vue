@@ -18,6 +18,7 @@
       <view class="medium-margin-top-spacer">
         <u--textarea
           border="none"
+          class="textarea"
           v-model="description"
           placeholder="說說你的使用感受，入手渠道，轉手原因..."
           :height="120"
@@ -75,7 +76,7 @@
         <view class="space-between-center-container">
           <icon-sub-header iconName="rmb-circle" label="價格" />
           <view class="row-center-container" @click="onToggleCostInput">
-            <view class="medium-margin-right-spacer">
+            <view class="row-center-container medium-margin-right-spacer">
               <text class="h3 green" v-if="isPriceZero">保護環境 以物換物</text>
             </view>
             <display-currency-fish-coin :value="displayPrice" />
@@ -245,7 +246,6 @@ export default {
       this.showCostInput = false;
     },
     onToggleCostInput() {
-      console.log("should show!!!");
       this.showCostInput = !this.showCostInput;
     },
     setEditItem(item) {
@@ -283,5 +283,8 @@ export default {
   font-family: monospace;
   margin: 0px;
   width: fit-content;
+}
+.textarea {
+  background-color: $u-phoenix-background-color;
 }
 </style>
