@@ -1,6 +1,6 @@
 <template>
-  <view>
-    <view class="card container">
+  <view class="container">
+    <view class="card medium-margin-top-spacer">
       <view class="medium-margin-top-spacer">
         <text class="h4 black bold">收件人</text>
         <u-input
@@ -41,25 +41,26 @@
           v-model="address.unit"
         />
       </view>
-    </view>
-    <view class="cu-bar foot column-center-container container">
-      <u-button
-        class="submit-button"
-        shape="circle"
-        type="primary"
+      <primary-button
+        class="medium-margin-top-spacer"
         :disabled="submitButtonDisabled"
+        :label="submitButtonLabel"
         :loading="false"
         @click="onClickSubmit"
-        >{{ submitButtonLabel }}
-      </u-button>
-      <view class="medium-margin-top-spacer" v-if="isEdit">
-        <text class="secondary" @click="onClickDelete"> 删除 </text>
+      >
+      </primary-button>
+      <view
+        class="medium-margin-top-spacer row-center-center-container"
+        v-if="isEdit"
+      >
+        <text class="h5 secondary" @click="onClickDelete">删除</text>
       </view>
     </view>
   </view>
 </template>
 
 <script>
+import primaryButton from "../common/button/primaryButton.vue";
 import { getRouterJsonParam } from "../route/applicationRoute";
 import {
   CREATE_ADDRESS,
@@ -67,6 +68,7 @@ import {
   UPDATE_ADDRESS,
 } from "../service/service";
 export default {
+  components: { primaryButton },
   computed: {
     submitButtonDisabled() {
       const { contactName, countryCode, phoneNumber, street, unit } =
@@ -125,6 +127,5 @@ export default {
 
 <style lang="scss" scoped>
 .submit-button {
-  width: 100%;
 }
 </style>

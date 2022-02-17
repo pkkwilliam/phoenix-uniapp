@@ -10,8 +10,10 @@
         :key="index"
       >
         <view class="space-between-center-container">
-          <text>ID: {{ business.id }}</text>
-          <text>{{ getBusinessStatus(business.businessStatus) }}</text>
+          <text class="h4">ID: {{ business.id }}</text>
+          <text class="h4">{{
+            getBusinessStatus(business.businessStatus)
+          }}</text>
         </view>
         <view class="medium-margin-top-spacer">
           <text class="h3 black bold">{{ business.name }}</text>
@@ -19,9 +21,9 @@
         <view class="medium-margin-top-spacer">
           <text class="h3 black">{{ business.remark }}</text>
         </view>
-        <view class="flex-end-center-container medium-margin-top-spacer">
+        <!-- <view class="flex-end-center-container medium-margin-top-spacer">
           <u-button
-            class="button"
+            class="button fit-content-button"
             size="mini"
             shape="circle"
             type="error"
@@ -31,13 +33,15 @@
           >
             删除
           </u-button>
-        </view>
+        </view> -->
       </view>
     </view>
-    <view class="cu-bar foot container">
-      <primary-button label="申請企業賬號" @onClick="onClickAddBusiness">
-        申請企業
-      </primary-button>
+    <view class="cu-bar foot">
+      <view class="container full-width">
+        <primary-button label="申請企業賬號" @onClick="onClickAddBusiness">
+          申請企業
+        </primary-button>
+      </view>
     </view>
   </view>
 </template>

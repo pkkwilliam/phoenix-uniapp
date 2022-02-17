@@ -1,11 +1,16 @@
 <script>
+import Vue from "vue";
+import { GET_APP_CONFIG } from "./service/service";
+import { getServiceUrl } from "./util/appConfigUtil";
 export default {
   onLaunch: function () {
+    console.log("onLaunch");
     // Hot Update
     plus.runtime.getProperty(plus.runtime.appid, function (widgetInfo) {
       console.log("check update");
       console.log(widgetInfo);
       const serviceUrl = getServiceUrl();
+      console.log("service url:", serviceUrl);
       const { version, versionCode } = widgetInfo;
       const { url } = GET_APP_CONFIG(version);
       console.log(serviceUrl + url);

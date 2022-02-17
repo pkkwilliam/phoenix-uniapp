@@ -1,12 +1,12 @@
 <template>
   <view>
     <view class="space-between-center-container medium-margin-bottom-spacer">
-      <text>摸魚紅包</text>
-      <text class="secondary">暫無可用</text>
+      <text class="h4">摸魚紅包</text>
+      <text class="h4 secondary">暫無可用</text>
     </view>
     <application-line-breaker />
     <view class="space-between-center-container medium-margin-top-spacer">
-      <text class="mini-margin-right-spacer">餘額</text>
+      <text class="h4 mini-margin-right-spacer">餘額</text>
       <display-currency-fish-coin :value="userBalance" />
     </view>
   </view>

@@ -3,7 +3,7 @@
     <view class="row-center-container">
       <u-icon name="plus" size="18" />
       <view class="small-margin-left-spacer">
-        <text>發布寶貝，通知鐵粉圍觀</text>
+        <text class="h3">發布寶貝，通知鐵粉圍觀</text>
       </view>
     </view>
     <border-button

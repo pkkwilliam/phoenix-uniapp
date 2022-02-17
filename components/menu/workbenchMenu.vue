@@ -7,7 +7,7 @@
     >
       <view class="row-center-container button">
         <u-icon :name="menuItem.iconName" size="28" />
-        <text class="label">{{ menuItem.label }}</text>
+        <text class="h4 label">{{ menuItem.label }}</text>
       </view>
       <application-line-breaker v-if="index < menuItems.length - 1" />
     </view>

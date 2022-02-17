@@ -1782,7 +1782,7 @@ var render = function() {
       staticStyle: { flexDirection: "column" },
       attrs: {
         scrollY: true,
-        showScrollbar: true,
+        showScrollbar: false,
         enableBackToTop: true,
         bubble: "true"
       }

@@ -55,6 +55,7 @@ export const execute = async (
           uni.showModal({
             title: "出錯",
             content: getExceptionTranslation(data.errorCode, data.message),
+            showCancel: false,
           });
           return reject(data.message);
         } else {

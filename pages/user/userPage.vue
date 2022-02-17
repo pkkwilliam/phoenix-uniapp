@@ -1,7 +1,7 @@
 <template>
   <view class="container">
-    <view class="space-between-center-container">
-      <u-avatar size="188" :src="userAvatarImageUrl" />
+    <view class="space-between-center-container medium-margin-top-spacer">
+      <u-avatar size="88" :src="userAvatarImageUrl" />
       <view class="column-center-container">
         <view class="row-center-container">
           <user-like-count-button class="user-interaction-button" />
@@ -21,8 +21,11 @@
         <phone-number-verified-tag />
         <chat-message-button type="button" :toUser="user" />
       </view>
+      <view class="flex-end-center-container small-margin-top-spacer">
+        <dislike-author-button :user="user" />
+      </view>
       <view class="small-margin-top-spacer">
-        <text>{{ user.description }}</text>
+        <text class="h4">{{ user.description }}</text>
       </view>
       <view class="medium-margin-top-spacer">
         <application-line-breaker />
@@ -60,6 +63,7 @@ import UserSubscribeCountButton from "../../components/navigationButton/user/use
 import UserFansCountButton from "../../components/navigationButton/user/userFansCountButton.vue";
 import DisplayCurrencyFishCoin from "../../common/displayCurrency/displayCurrencyFishCoin.vue";
 import ChatMessageButton from "../../components/navigationButton/chat/chatMessageButton.vue";
+import DislikeAuthorButton from "../../components/dislikeAuthor/dislikeAuthorButton.vue";
 export default {
   components: {
     PaginationItemDisplay,
@@ -73,6 +77,7 @@ export default {
     UserSubscribeCountButton,
     DisplayCurrencyFishCoin,
     ChatMessageButton,
+    DislikeAuthorButton,
   },
   computed: {
     userAvatarImageUrl() {

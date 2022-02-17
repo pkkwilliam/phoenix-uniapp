@@ -1,8 +1,8 @@
 <template>
-  <view>
+  <view class="full-width">
     <view class="row-center-container" @click="onClick">
       <view>
-        <u-avatar size="60" :src="userAvatarImageUrl" />
+        <u-avatar :size="avatarSize" :src="userAvatarImageUrl" />
       </view>
       <view class="column-container text-container">
         <text class="h3 black">{{ userNickname }}</text>
@@ -12,15 +12,19 @@
     <view class="small-margin-top-spacer" v-if="showQualifications">
       <phone-number-verified-tag />
     </view>
+    <view class="flex-end-container" v-if="showDislikeAuthorButton">
+      <dislike-author-button :user="user" />
+    </view>
   </view>
 </template>
 
 <script>
+import DislikeAuthorButton from "../../components/dislikeAuthor/dislikeAuthorButton.vue";
 import PhoneNumberVerifiedTag from "../../components/tag/phoneNumberVerifiedTag.vue";
 import { USER_PAGE } from "../../route/applicationRoute";
 
 export default {
-  components: { PhoneNumberVerifiedTag },
+  components: { PhoneNumberVerifiedTag, DislikeAuthorButton },
   computed: {
     userAvatarImageUrl() {
       const { user } = this;
@@ -45,11 +49,19 @@ export default {
     },
   },
   props: {
-    user: Object,
+    avatarSize: {
+      default: 50,
+      type: Number,
+    },
+    showDislikeAuthorButton: {
+      default: false,
+      type: Boolean,
+    },
     showQualifications: {
       default: true,
       type: Boolean,
     },
+    user: Object,
   },
 };
 </script>

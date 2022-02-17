@@ -18,11 +18,13 @@ const USER_BARTER_REQUEST = "/user/barter_request/v1";
 const USER_BUSINESS = "/user/business/v1";
 const USER_CASH_OUT = "/user/cash_out/v1";
 const USER_CHAT_MESSAGE = "/user/chat_message/v1";
+const USER_DISLIKE_AUTHOR = "/user/dislike_author/v1";
 const USER_IMAGE_UPLOAD = "/user/image_upload/v1";
 const USER_ITEM = "/user/item/v1";
 const USER_MPAY_ORDER = "/user/mpay_order/v1";
 const USER_ORDER = "/user/order/v1";
 const USER_PROFILE = "/user_profile/v1";
+const USER_REPORT_ITEM = "/user/report_item/v1";
 const USER_SAVE_ITEM = "/user/user_save_item/v1";
 const USER_STATUS_SUMMARY = "/user/status_summary/v1";
 const USER_VIEW_ITEM = "/user/user_view_item/v1";
@@ -362,6 +364,31 @@ export const UPDATE_OPPOSITE_USER_CHAT_MESSAGE_RECEIVED = (
   url: USER_CHAT_MESSAGE + `/received/${oppositeUserSid}`,
 });
 
+//
+export const CREATE_DISLIKE_AUTHOR = (userSid) => ({
+  authenticatedRequest: true,
+  method: POST_METHOD,
+  timer: {
+    title: "屏蔽中",
+    length: 1000,
+  },
+  url: USER_DISLIKE_AUTHOR + `/author/${userSid}`,
+});
+
+export const DELETE_DISLIKE_AUTHOR = (dislikeAuthorId) => ({
+  authenticatedRequest: true,
+  method: DELETE_METHOD,
+  url: USER_DISLIKE_AUTHOR + `/${dislikeAuthorId}`,
+});
+
+export const GET_DISLIKE_AUTHOR = (pageRequest, requestSize) => ({
+  authenticatedRequest: true,
+  method: GET_METHOD,
+  url:
+    USER_DISLIKE_AUTHOR +
+    queryParams({ pageRequest, requestSize }, true, "comma"),
+});
+
 // Image Upload
 export const GET_IMAGE_UPLOAD_TOKEN = () => ({
   authenticatedRequest: true,
@@ -541,6 +568,18 @@ export const UPDATE_ORDER_AS_SHIPPED_BY_SELLER = (orderId) => ({
   authenticatedRequest: true,
   method: PUT_METHOD,
   url: USER_ORDER + `/${orderId}/shipped`,
+});
+
+// Report Item
+export const CREATE_REPORT_ITEM = (request) => ({
+  authenticatedRequest: true,
+  body: JSON.stringify(request),
+  method: POST_METHOD,
+  url: USER_REPORT_ITEM,
+  timer: {
+    title: "提交投訴",
+    length: 1000,
+  },
 });
 
 // Status Summary

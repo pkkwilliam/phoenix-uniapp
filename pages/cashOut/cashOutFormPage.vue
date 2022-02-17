@@ -34,13 +34,15 @@
         </view>
       </view>
     </view>
-    <view class="cu-bar foot container">
-      <primary-button
-        label="提取"
-        :disabled="!disableSubmit"
-        :loading="loading"
-        @onClick="onClickSubmit"
-      />
+    <view class="cu-bar foot">
+      <view class="container full-width">
+        <primary-button
+          label="提取"
+          :disabled="!disableSubmit"
+          :loading="loading"
+          @onClick="onClickSubmit"
+        />
+      </view>
     </view>
     <u-modal
       v-model="showConfirmModal"

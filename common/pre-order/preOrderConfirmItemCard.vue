@@ -1,12 +1,13 @@
 <template>
   <view class="item-container">
-    <u-image
-      class="item-image"
-      mode="widthFix"
-      width="80%"
-      :border-radius="30"
-      :src="itemCoverImage"
-    />
+    <view class="medium-margin-right-spacer">
+      <image
+        class="item-image"
+        mode="aspectFill"
+        width="80%"
+        :src="itemCoverImage"
+      />
+    </view>
     <view class="item-text-container">
       <text class="item-description">{{ itemDescription }}</text>
       <display-currency-fish-coin class="price" :value="itemPrice" />
@@ -49,7 +50,9 @@ export default {
     }
   }
   .item-image {
-    margin-right: 20rpx;
+    border-radius: 8px;
+    height: 180rpx;
+    width: 180rpx;
   }
   .item-description {
     font-size: 32rpx;

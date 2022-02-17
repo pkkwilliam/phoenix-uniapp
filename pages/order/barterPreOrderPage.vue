@@ -1,13 +1,13 @@
 <template>
-  <view>
-    <view class="container sticky-bottom-container-padding">
+  <view class="sticky-bottom-container-padding" v-if="loaded">
+    <view class="container">
       <view class="card medium-margin-top-spacer">
         <order-confirm-item-card :item="item" />
       </view>
       <view class="card medium-margin-top-spacer">
         <application-subsection
+          v-model="selectedDeliveryTypeIndex"
           :list="deliveryMethods"
-          @onChange="deliverySectionChange"
         />
         <view
           class="large-margin-top-spacer"
@@ -19,7 +19,7 @@
             </text>
           </view>
           <view class="space-between-center-container medium-margin-top-spacer">
-            <text>聯絡電話</text>
+            <text class="h4">聯絡電話</text>
             <text class="h4 black bold">{{ receiverNumber }}</text>
           </view>
         </view>
@@ -38,7 +38,7 @@
         </view>
 
         <view class="medium-margin-top-spacer">
-          <text>備註</text>
+          <text class="h4">備註</text>
           <u-input
             class="medium-margin-top-spacer"
             type="text"
@@ -51,23 +51,21 @@
         <pre-order-payment-aid />
       </view>
     </view>
-    <view class="cu-bar foot">
-      <stick-bottom-bar>
-        <template slot="right">
-          <view class="row-center-container medium-margin-right-spacer">
-            <text class="label small-margin-right-spacer">需要:</text>
-            <display-currency-fish-coin class="should-pay" :value="orderCost" />
-          </view>
-          <view>
-            <primary-button
-              label="立即交易"
-              :disabled="disabledSubmitButton"
-              :loading="loading"
-              @onClick="onClickSubmit"
-            />
-          </view>
-        </template>
-      </stick-bottom-bar>
+    <view class="cu-bar foot bottom-container">
+      <view class="flex-end-center-container full-width">
+        <view class="row-center-container medium-margin-right-spacer">
+          <text class="label small-margin-right-spacer">需付:</text>
+          <display-currency-fish-coin class="should-pay" :value="orderCost" />
+        </view>
+        <view class="medium-margin-right-spacer">
+          <primary-button
+            label="立即交易"
+            :disabled="disabledSubmitButton"
+            :loading="loading"
+            @onClick="onClickSubmit"
+          />
+        </view>
+      </view>
     </view>
   </view>
 </template>
@@ -146,6 +144,7 @@ export default {
   data() {
     return {
       item: undefined,
+      loaded: false,
       loading: false,
       remark: undefined,
       selectedAddress: undefined,
@@ -155,11 +154,9 @@ export default {
   async onLoad(options) {
     const itemId = getRouterJsonParam(options, "itemId");
     this.item = await this.execute(GET_ITEM(itemId));
+    this.loaded = true;
   },
   methods: {
-    deliverySectionChange(index) {
-      this.selectedDeliveryTypeIndex = index;
-    },
     async onClickSubmit() {
       this.loading = true;
       try {
@@ -196,4 +193,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.bottom-container {
+  background: $u-phoenix-white;
+}
 </style>

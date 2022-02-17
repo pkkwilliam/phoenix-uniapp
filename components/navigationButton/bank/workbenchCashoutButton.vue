@@ -3,7 +3,7 @@
     <view class="row-center-container">
       <view class="row-center-container small-margin-left-spacer">
         <display-currency-mop :value="amount" />
-        <text>可以提取</text>
+        <text class="h3">可以提取</text>
       </view>
     </view>
     <border-button

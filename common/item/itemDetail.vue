@@ -28,6 +28,9 @@
         :viewCount="item.viewCount"
       />
     </view>
+    <view class="flex-end-center-container">
+      <report-item-button :item="item" />
+    </view>
   </view>
 </template>
 
@@ -40,6 +43,7 @@ import StrikeThroughCurrencyPrice from "../strikeThroughCurrencyPrice.vue";
 import ItemViewAndSaveCount from "./itemViewAndSaveCount.vue";
 import PlatformGuarantee from "../../components/guarantee/platformGuarantee.vue";
 import ApplicationLazyLoadImage from "../applicationComponent/applicationLazyLoadImage.vue";
+import ReportItemButton from "../../components/reportItem/reportItemButton.vue";
 
 export default {
   components: {
@@ -50,6 +54,7 @@ export default {
     ItemViewAndSaveCount,
     PlatformGuarantee,
     ApplicationLazyLoadImage,
+    ReportItemButton,
   },
   computed: {
     conditionLabel() {

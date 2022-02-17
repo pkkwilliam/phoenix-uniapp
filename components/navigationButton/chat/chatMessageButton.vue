@@ -4,7 +4,7 @@
     @click="onClick"
     v-if="type === 'bottom-navigation'"
   >
-    <u-icon class="green" name="chat" :size="28" />
+    <u-icon class="green" name="chat" :size="iconSize" />
     <text class="h5 text">{{ label }}</text>
   </view>
   <view
@@ -12,7 +12,7 @@
     @click="onClick"
     v-else-if="type === 'button'"
   >
-    <u-icon name="chat" :size="48" />
+    <u-icon name="chat" :size="iconSize" />
   </view>
 </template>
 
@@ -25,6 +25,10 @@ export default {
     },
   },
   props: {
+    iconSize: {
+      default: 28,
+      type: Number,
+    },
     label: {
       default: "發消息",
       type: String,

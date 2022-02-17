@@ -23,13 +23,15 @@
           class="arrow-right"
           name="arrow-right"
           color="#a3a3a3"
-          :size="26"
+          :size="12"
           @click="onClickRightIcon(address)"
         />
       </view>
     </view>
-    <view class="cu-bar foot container">
-      <primary-button label="創建地址" @onClick="onClickCreateAddress" />
+    <view class="cu-bar foot">
+      <view class="full-width container">
+        <primary-button label="創建地址" @onClick="onClickCreateAddress" />
+      </view>
     </view>
   </view>
 </template>

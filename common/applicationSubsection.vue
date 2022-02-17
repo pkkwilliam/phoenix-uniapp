@@ -2,10 +2,10 @@
   <view class="u-item-text">
     <u-subsection
       class="u-item-text"
-      active-color="#ffe24b"
-      font-size="22"
+      font-size="12"
       mode="subsection"
-      :bold="false"
+      :bold="true"
+      :current="value"
       :height="50"
       :list="list"
       @change="change"
@@ -18,11 +18,12 @@ import "./applicationSubsection.scss";
 export default {
   methods: {
     change(index) {
-      this.$emit("onChange", index);
+      this.$emit("input", index);
     },
   },
   props: {
     list: Array,
+    value: Number,
   },
 };
 </script>
