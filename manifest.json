@@ -1,234 +1,232 @@
 {
-  "name": "摸魚",
-  "appid": "__UNI__E6FB175",
-  "description": "多平台快速开发的UI框架",
-  "versionName": "1.0.17",
-  "versionCode": 1017,
-  "transformPx": false,
-  "app-plus": {
-    "locales": {
-      "en": {
-        "name": "MFish",
-        "android": {
-          "strings": {
-            "CustomKey": "CustomValue"
-          }
+    "name" : "摸魚",
+    "appid" : "__UNI__E6FB175",
+    "description" : "多平台快速开发的UI框架",
+    "versionName" : "1.0.18",
+    "versionCode" : 1018,
+    "transformPx" : false,
+    "app-plus" : {
+        "locales" : {
+            "en" : {
+                "name" : "摸魚",
+                "android" : {
+                    "strings" : {
+                        "CustomKey" : "CustomValue"
+                    }
+                },
+                "ios" : {
+                    "privacyDescription" : {
+                        "NSPhotoLibraryUsageDescription" : "Help you easily list your goods.",
+                        "NSCameraUsageDescription" : "Help you easily list your goods.",
+                        "NSAppleMusicUsageDescription" : "Help you easily list your goods."
+                    },
+                    "infoPlist" : {
+                        "CustomKey" : "CustomValue"
+                    }
+                }
+            },
+            "zh" : {
+                "name" : "摸魚",
+                "android" : {
+                    "strings" : {
+                        "CustomKey" : "CustomValue"
+                    }
+                },
+                "ios" : {
+                    "privacyDescription" : {
+                        "NSPhotoLibraryUsageDescription" : "為了幫助您輕鬆發布寶貝",
+                        "NSCameraUsageDescription" : "為了幫助您輕鬆發布寶貝",
+                        "NSAppleMusicUsageDescription" : "為了幫助您輕鬆發布寶貝"
+                    },
+                    "infoPlist" : {
+                        "CustomKey" : "CustomValue"
+                    }
+                }
+            }
         },
-        "ios": {
-          "privacyDescription": {
-            "NSPhotoLibraryUsageDescription": "Help you easily list your goods.",
-            "NSCameraUsageDescription": "Help you easily list your goods.",
-            "NSAppleMusicUsageDescription": "Help you easily list your goods."
-          },
-          "infoPlist": {
-            "CustomKey": "CustomValue"
-          }
-        }
-      },
-      "zh": {
-        "name": "摸魚",
-        "android": {
-          "strings": {
-            "CustomKey": "CustomValue"
-          }
+        "optimization" : {
+            "subPackages" : true
         },
-        "ios": {
-          "privacyDescription": {
-            "NSPhotoLibraryUsageDescription": "幫助您輕鬆發布寶貝",
-            "NSCameraUsageDescription": "幫助您輕鬆發布寶貝",
-            "NSAppleMusicUsageDescription": "幫助您輕鬆發布寶貝"
-          },
-          "infoPlist": {
-            "CustomKey": "CustomValue"
-          }
-        }
-      }
-    },
-    "optimization": {
-      "subPackages": true
-    },
-    "safearea": {
-      "background": "#FFFFFF",
-      "bottom": {
-        "offset": "none"
-      }
-    },
-    "splashscreen": {
-      "alwaysShowBeforeRender": true,
-      "waiting": true,
-      "autoclose": true,
-      "delay": 0
-    },
-    "usingComponents": true,
-    "nvueCompiler": "uni-app",
-    "compilerVersion": 3,
-    "modules": {
-      "Webview-x5": {},
-      "Payment": {},
-      "Push": {}
-    },
-    "distribute": {
-      "android": {
-        "permissions": [
-          "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
-          "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
-          "<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
-          "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
-          "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
-          "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
-          "<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
-          "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
-          "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
-          "<uses-permission android:name=\"android.permission.CAMERA\"/>",
-          "<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
-          "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
-          "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
-          "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
-          "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
-          "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
-          "<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
-          "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
-          "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
-          "<uses-feature android:name=\"android.hardware.camera\"/>",
-          "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
-          "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
-        ],
-        "abiFilters": ["armeabi-v7a", "arm64-v8a"]
-      },
-      "ios": {
-        "idfa": false,
-        "capabilities": {
-          "entitlements": {
-            "com.apple.developer.associated-domains": [
-              "applinks:static-4c7380e8-755f-4717-9f87-173b7bdadbe3.bspapp.com"
-            ]
-          }
+        "safearea" : {
+            "background" : "#FFFFFF",
+            "bottom" : {
+                "offset" : "none"
+            }
         },
-        "privacyDescription": {
-          "NSPhotoLibraryUsageDescription": "幫助您輕鬆發布寶貝",
-          "NSCameraUsageDescription": "幫助您輕鬆發布寶貝",
-          "NSAppleMusicUsageDescription": "幫助您輕鬆發布寶貝"
-        }
-      },
-      "sdkConfigs": {
-        "ad": {},
-        "payment": {
-          "appleiap": {},
-          "alipay": {
-            "__platform__": ["ios", "android"]
-          },
-          "weixin": {
-            "__platform__": ["ios", "android"],
-            "appid": "phoenix",
-            "UniversalLinks": "https://static-4c7380e8-755f-4717-9f87-173b7bdadbe3.bspapp.com/uni-universallinks/__UNI__E6FB175/"
-          }
+        "splashscreen" : {
+            "alwaysShowBeforeRender" : true,
+            "waiting" : true,
+            "autoclose" : true,
+            "delay" : 0
         },
-        "push": {
-          "unipush": {}
-        }
-      },
-      "icons": {
-        "android": {
-          "hdpi": "unpackage/res/icons/72x72.png",
-          "xhdpi": "unpackage/res/icons/96x96.png",
-          "xxhdpi": "unpackage/res/icons/144x144.png",
-          "xxxhdpi": "unpackage/res/icons/192x192.png"
+        "usingComponents" : true,
+        "nvueCompiler" : "uni-app",
+        "compilerVersion" : 3,
+        "modules" : {
+            "Webview-x5" : {},
+            "Payment" : {},
+            "Push" : {}
         },
-        "ios": {
-          "appstore": "unpackage/res/icons/1024x1024.png",
-          "ipad": {
-            "app": "unpackage/res/icons/76x76.png",
-            "app@2x": "unpackage/res/icons/152x152.png",
-            "notification": "unpackage/res/icons/20x20.png",
-            "notification@2x": "unpackage/res/icons/40x40.png",
-            "proapp@2x": "unpackage/res/icons/167x167.png",
-            "settings": "unpackage/res/icons/29x29.png",
-            "settings@2x": "unpackage/res/icons/58x58.png",
-            "spotlight": "unpackage/res/icons/40x40.png",
-            "spotlight@2x": "unpackage/res/icons/80x80.png"
-          },
-          "iphone": {
-            "app@2x": "unpackage/res/icons/120x120.png",
-            "app@3x": "unpackage/res/icons/180x180.png",
-            "notification@2x": "unpackage/res/icons/40x40.png",
-            "notification@3x": "unpackage/res/icons/60x60.png",
-            "settings@2x": "unpackage/res/icons/58x58.png",
-            "settings@3x": "unpackage/res/icons/87x87.png",
-            "spotlight@2x": "unpackage/res/icons/80x80.png",
-            "spotlight@3x": "unpackage/res/icons/120x120.png"
-          }
+        "distribute" : {
+            "android" : {
+                "permissions" : [
+                    "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
+                    "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+                    "<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CAMERA\"/>",
+                    "<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
+                    "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+                    "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+                    "<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
+                    "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+                    "<uses-feature android:name=\"android.hardware.camera\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
+                ],
+                "abiFilters" : [ "armeabi-v7a", "arm64-v8a" ]
+            },
+            "ios" : {
+                "idfa" : false,
+                "capabilities" : {
+                    "entitlements" : {
+                        "com.apple.developer.associated-domains" : [ "applinks:static-4c7380e8-755f-4717-9f87-173b7bdadbe3.bspapp.com" ]
+                    }
+                },
+                "privacyDescription" : {
+                    "NSPhotoLibraryUsageDescription" : "幫助您輕鬆發布寶貝",
+                    "NSCameraUsageDescription" : "幫助您輕鬆發布寶貝",
+                    "NSAppleMusicUsageDescription" : "幫助您輕鬆發布寶貝"
+                }
+            },
+            "sdkConfigs" : {
+                "ad" : {},
+                "payment" : {
+                    "appleiap" : {},
+                    "alipay" : {
+                        "__platform__" : [ "ios", "android" ]
+                    },
+                    "weixin" : {
+                        "__platform__" : [ "ios", "android" ],
+                        "appid" : "phoenix",
+                        "UniversalLinks" : "https://static-4c7380e8-755f-4717-9f87-173b7bdadbe3.bspapp.com/uni-universallinks/__UNI__E6FB175/"
+                    }
+                },
+                "push" : {
+                    "unipush" : {}
+                }
+            },
+            "icons" : {
+                "android" : {
+                    "hdpi" : "unpackage/res/icons/72x72.png",
+                    "xhdpi" : "unpackage/res/icons/96x96.png",
+                    "xxhdpi" : "unpackage/res/icons/144x144.png",
+                    "xxxhdpi" : "unpackage/res/icons/192x192.png"
+                },
+                "ios" : {
+                    "appstore" : "unpackage/res/icons/1024x1024.png",
+                    "ipad" : {
+                        "app" : "unpackage/res/icons/76x76.png",
+                        "app@2x" : "unpackage/res/icons/152x152.png",
+                        "notification" : "unpackage/res/icons/20x20.png",
+                        "notification@2x" : "unpackage/res/icons/40x40.png",
+                        "proapp@2x" : "unpackage/res/icons/167x167.png",
+                        "settings" : "unpackage/res/icons/29x29.png",
+                        "settings@2x" : "unpackage/res/icons/58x58.png",
+                        "spotlight" : "unpackage/res/icons/40x40.png",
+                        "spotlight@2x" : "unpackage/res/icons/80x80.png"
+                    },
+                    "iphone" : {
+                        "app@2x" : "unpackage/res/icons/120x120.png",
+                        "app@3x" : "unpackage/res/icons/180x180.png",
+                        "notification@2x" : "unpackage/res/icons/40x40.png",
+                        "notification@3x" : "unpackage/res/icons/60x60.png",
+                        "settings@2x" : "unpackage/res/icons/58x58.png",
+                        "settings@3x" : "unpackage/res/icons/87x87.png",
+                        "spotlight@2x" : "unpackage/res/icons/80x80.png",
+                        "spotlight@3x" : "unpackage/res/icons/120x120.png"
+                    }
+                }
+            }
+        },
+        "nativePlugins" : {
+            "sn-mpay" : {
+                "__plugin_info__" : {
+                    "name" : "澳门通支付 mpay",
+                    "description" : "提供 澳门通移动支付（mpay） 功能",
+                    "platforms" : "Android,iOS",
+                    "url" : "https://ext.dcloud.net.cn/plugin?id=6362",
+                    "android_package_name" : "uni.UNIE6FB175",
+                    "ios_bundle_id" : "mo.bitcode.second-hand-trade",
+                    "isCloud" : true,
+                    "bought" : 1,
+                    "pid" : "6362",
+                    "parameters" : {}
+                }
+            }
         }
-      }
     },
-    "nativePlugins": {
-      "sn-mpay": {
-        "__plugin_info__": {
-          "name": "澳门通支付 mpay",
-          "description": "提供 澳门通移动支付（mpay） 功能",
-          "platforms": "Android,iOS",
-          "url": "https://ext.dcloud.net.cn/plugin?id=6362",
-          "android_package_name": "uni.UNIE6FB175",
-          "ios_bundle_id": "mo.bitcode.second-hand-trade",
-          "isCloud": true,
-          "bought": 1,
-          "pid": "6362",
-          "parameters": {}
-        }
-      }
-    }
-  },
-  "quickapp": {},
-  "mp-weixin": {
-    "appid": "",
-    "setting": {
-      "urlCheck": false,
-      "es6": false,
-      "minified": false,
-      "postcss": false
+    "quickapp" : {},
+    "mp-weixin" : {
+        "appid" : "",
+        "setting" : {
+            "urlCheck" : false,
+            "es6" : false,
+            "minified" : false,
+            "postcss" : false
+        },
+        "optimization" : {
+            "subPackages" : true
+        },
+        "usingComponents" : true
     },
-    "optimization": {
-      "subPackages": true
+    "mp-alipay" : {
+        "usingComponents" : true,
+        "component2" : true
     },
-    "usingComponents": true
-  },
-  "mp-alipay": {
-    "usingComponents": true,
-    "component2": true
-  },
-  "mp-qq": {
-    "optimization": {
-      "subPackages": true
+    "mp-qq" : {
+        "optimization" : {
+            "subPackages" : true
+        },
+        "appid" : "15646153"
     },
-    "appid": "15646153"
-  },
-  "mp-baidu": {
-    "usingComponents": true,
-    "appid": ""
-  },
-  "mp-toutiao": {
-    "usingComponents": true,
-    "appid": ""
-  },
-  "h5": {
-    "template": "template.h5.html",
-    "router": {
-      "mode": "history",
-      "base": ""
+    "mp-baidu" : {
+        "usingComponents" : true,
+        "appid" : ""
     },
-    "optimization": {
-      "treeShaking": {
-        "enable": false
-      }
+    "mp-toutiao" : {
+        "usingComponents" : true,
+        "appid" : ""
     },
-    "title": "uView UI",
-    "sdkConfigs": {
-      "maps": {
-        "qqmap": {
-          "key": ""
-        }
-      }
+    "h5" : {
+        "template" : "template.h5.html",
+        "router" : {
+            "mode" : "history",
+            "base" : ""
+        },
+        "optimization" : {
+            "treeShaking" : {
+                "enable" : false
+            }
+        },
+        "title" : "uView UI",
+        "sdkConfigs" : {
+            "maps" : {
+                "qqmap" : {
+                    "key" : ""
+                }
+            }
+        },
+        "domain" : ""
     },
-    "domain": ""
-  },
-  "_spaceID": "4c7380e8-755f-4717-9f87-173b7bdadbe3"
+    "_spaceID" : "4c7380e8-755f-4717-9f87-173b7bdadbe3"
 }
