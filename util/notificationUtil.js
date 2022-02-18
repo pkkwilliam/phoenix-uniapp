@@ -3,7 +3,6 @@ import { LINK_USER_PUSH_NOTIFICATION_TOKEN } from "../service/service";
 export async function processPushNotificationToken({
   execute,
   getPushNotificationToken,
-  isLogin,
   setPushNotificationToken,
 }) {
   const onGetPushNotificationSuccss = async (clientInfo) => {
