@@ -1,19 +1,12 @@
 <template>
-  <view class="container">
+  <view class="container" v-if="loaded">
     <view class="card medium-margin-top-spacer">
-      <user-card
-        :showQualifications="false"
-        :user="barterRequest.createBy"
-        v-if="loaded"
-      />
+      <user-card :showQualifications="false" :user="barterRequest.createBy" />
       <view class="medium-margin-top-spacer">
         <text class="h3">{{ info }}</text>
       </view>
       <view class="medium-margin-top-spacer">
-        <barter-request-price-difference-row
-          :barterRequest="barterRequest"
-          v-if="loaded"
-        />
+        <barter-request-price-difference-row :barterRequest="barterRequest" />
       </view>
       <view class="row-container medium-margin-top-spacer" v-if="isPending">
         <u-icon name="clock" />
@@ -21,7 +14,7 @@
       </view>
       <view class="medium-margin-top-spacer" v-if="showOrder">
         <view class="flex-end-center-container">
-          <text class="blue underline" @click="navigateToOrderPage">
+          <text class="h4 blue underline" @click="navigateToOrderPage">
             前往訂單
           </text>
         </view>
@@ -35,12 +28,11 @@
       <text class="h3 black bold">想要物品</text>
       <application-line-breaker />
       <view class="medium-margin-top-spacer">
-        <text class="h5 secondary" v-if="loaded">
+        <text class="h5 secondary">
           {{ createTimeConverter(barterRequest.requestItem.createTime) }}
         </text>
       </view>
       <sold-item
-        v-if="loaded"
         class="small-margin-top-spacer"
         :clickable="true"
         :item="barterRequest.requestItem"
@@ -57,7 +49,7 @@
         <text class="h5 secondary">
           {{ createTimeConverter(item.createTime) }}
         </text>
-        <sold-item class="small-margin-top-spacer" v-if="loaded" :item="item" />
+        <sold-item class="small-margin-top-spacer" :item="item" />
       </view>
     </view>
     <view class="medium-margin-top-spacer">
