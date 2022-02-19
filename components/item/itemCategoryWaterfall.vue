@@ -1,7 +1,11 @@
 <template>
   <view>
-    <category-tap @onChangeCategory="onChangeCategory" />
-    <u-waterfall ref="uWaterfall" v-model="items">
+    <!-- <category-tap @onChangeCategory="onChangeCategory" /> -->
+    <u-waterfall
+      class="medium-margin-top-spacer"
+      ref="uWaterfall"
+      v-model="items"
+    >
       <template v-slot:left="{ leftList }">
         <view
           class="left-container large-margin-bottom-spacer"

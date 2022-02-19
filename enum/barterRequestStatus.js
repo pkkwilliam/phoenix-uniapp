@@ -17,7 +17,7 @@ export const BARTER_REQUEST_STATUS = [
   BARTER_REQUEST_REJECTED,
 ];
 
-export function getBarterRequestLabelByKey(key, barterRole) {
+export function getBarterRequestStatusLabelByKey(key, barterRole) {
   const barterRequestStatus = getBarterRequestStatusByKey(key);
   if (barterRole && key === BARTER_REQUEST_PENDING.key) {
     return barterRole === BARTER_ROLE_OFFERER.key

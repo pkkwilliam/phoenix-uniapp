@@ -7,7 +7,7 @@ export const BANK_ICBC_MACAU = {
 export const BANK_LUSO_MACAU = { key: "LUSO_MACAU", label: "澳門國際銀行" };
 export const BANK_TAI_FUNG_MACAU = { key: "TAI_FUNG_MACAU", label: "大豐銀行" };
 
-const BANKS = [
+export const BANKS = [
   BANK_BNU_MACAU,
   BANK_BOC_MACAU,
   BANK_ICBC_MACAU,

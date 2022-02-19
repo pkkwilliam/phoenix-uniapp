@@ -30,7 +30,7 @@ export default {
       type: Boolean,
     },
     size: {
-      default: "small",
+      default: "medium",
       type: String,
     },
   },

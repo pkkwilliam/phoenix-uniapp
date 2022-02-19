@@ -1,15 +1,21 @@
 <template>
   <view class="safe-area-inset-bottom">
-    <u-input
-      placeholder="請選擇銀行"
-      type="select"
-      v-model="label"
-      @click="show = true"
-    />
-    <u-select
-      confirm-text="確認"
-      v-model="show"
-      :list="transformBankAccounts"
+    <view @click="show = true">
+      <u-input
+        disabled
+        placeholder="請選擇銀行"
+        type="select"
+        v-model="label"
+      />
+    </view>
+    <u-picker
+      confirmText="確認"
+      keyName="label"
+      :closeOnClickOverlay="true"
+      :columns="transformBankAccounts"
+      :show="show"
+      @cancel="show = false"
+      @close="show = false"
       @confirm="onSelect"
     />
   </view>
@@ -20,10 +26,11 @@ import { getBankLabelByKey } from "../../enum/bank";
 export default {
   computed: {
     transformBankAccounts() {
-      return this.bankAccounts.map((bankAccount) => ({
+      const bankAccounts = this.bankAccounts.map((bankAccount) => ({
         value: bankAccount,
         label: this.getBankAccountLabel(bankAccount),
       }));
+      return [bankAccounts];
     },
   },
   data() {
@@ -35,11 +42,12 @@ export default {
       const bankLabel = getBankLabelByKey(bank);
       return `${beneficialName} ${bankLabel}-${beneficialAccountNumber}`;
     },
-    onSelect(bankAccount) {
-      const account = bankAccount[0].value;
-      const label = bankAccount[0].label;
+    onSelect(selectedEvent) {
+      const { value, label } = selectedEvent.value[0];
+      console.log("selected bank account value:", value);
       this.label = label;
-      this.$emit("onSelect", account);
+      this.$emit("onSelect", value);
+      this.show = false;
     },
   },
   props: {

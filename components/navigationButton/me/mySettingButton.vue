@@ -1,6 +1,6 @@
 <template>
   <view class="row-center-container" @click="onClick">
-    <u-icon name="setting" size="18" />
+    <u-icon name="setting" size="26" />
   </view>
 </template>
 

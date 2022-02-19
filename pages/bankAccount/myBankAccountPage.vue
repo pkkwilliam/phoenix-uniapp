@@ -22,16 +22,18 @@
             class="arrow-right"
             name="arrow-right"
             color="#a3a3a3"
-            :size="26"
+            :size="12"
           />
         </view>
       </view>
     </view>
-    <view class="cu-bar foot container">
-      <primary-button
-        label="添加銀行賬戶"
-        @onClick="onClickCreateBankAccount"
-      />
+    <view class="cu-bar foot">
+      <view class="container full-width">
+        <primary-button
+          label="添加銀行賬戶"
+          @onClick="onClickCreateBankAccount"
+        />
+      </view>
     </view>
   </view>
 </template>

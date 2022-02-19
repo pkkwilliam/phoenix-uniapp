@@ -1,39 +1,32 @@
 <template>
   <view>
-    <u-input
-      placeholder="請選擇銀行"
-      type="select"
-      v-model="value"
-      @click="show = true"
-    />
-    <u-select
-      confirm-text="確認"
-      v-model="show"
-      :list="banks"
+    <view @click="show = true">
+      <u-input
+        disabled
+        placeholder="請選擇銀行"
+        type="select"
+        v-model="value"
+      />
+    </view>
+    <u-picker
+      confirmText="確認"
+      keyName="label"
+      :closeOnClickOverlay="true"
+      :columns="banks"
+      :show="show"
+      @cancel="show = false"
+      @close="show = false"
       @confirm="onSelect"
     />
   </view>
 </template>
 
 <script>
-import {
-  BANK_BNU_MACAU,
-  BANK_LUSO_MACAU,
-  BANK_BOC_MACAU,
-  BANK_ICBC_MACAU,
-  BANK_TAI_FUNG_MACAU,
-  getBankLabelByKey,
-} from "../../enum/bank";
+import { BANKS, getBankLabelByKey } from "../../enum/bank";
 export default {
   computed: {
     banks() {
-      return [
-        BANK_BNU_MACAU,
-        BANK_LUSO_MACAU,
-        BANK_BOC_MACAU,
-        BANK_ICBC_MACAU,
-        BANK_TAI_FUNG_MACAU,
-      ].map((bank) => ({ ...bank, value: bank.key }));
+      return [BANKS.map((bank) => ({ ...bank, value: bank.key }))];
     },
     value() {
       return getBankLabelByKey(this.bank);
@@ -45,9 +38,12 @@ export default {
     };
   },
   methods: {
-    onSelect(bank) {
-      // u-select will only return value and label, we transform the value in computed
-      this.$emit("onSelect", bank[0].value);
+    onSelect(selectedEvent) {
+      const { value } = selectedEvent;
+      const { key } = value[0];
+      console.log("selected bank key:", key);
+      this.$emit("onSelect", key);
+      this.show = false;
     },
   },
   props: {

@@ -22,18 +22,21 @@
       </view>
     </view>
     <view>
-      <view class="cu-bar foot column-center-container container">
-        <u-button
-          class="submit-button"
-          shape="circle"
-          type="primary"
-          :disabled="submitButtonDisabled"
-          :loading="false"
-          @click="onClickSubmit"
-          >{{ submitButtonLabel }}
-        </u-button>
-        <view class="medium-margin-top-spacer" v-if="isEdit">
-          <text class="secondary" @click="onClickDelete"> 删除 </text>
+      <view class="cu-bar foot">
+        <view class="full-width column-center-container container">
+          <view></view>
+          <u-button
+            class="submit-button"
+            shape="circle"
+            type="primary"
+            :disabled="submitButtonDisabled"
+            :loading="false"
+            @click="onClickSubmit"
+            >{{ submitButtonLabel }}
+          </u-button>
+          <view class="medium-margin-top-spacer" v-if="isEdit">
+            <text class="h4 secondary" @click="onClickDelete"> 删除 </text>
+          </view>
         </view>
       </view>
     </view>

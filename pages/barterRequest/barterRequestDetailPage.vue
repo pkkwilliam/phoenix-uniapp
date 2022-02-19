@@ -27,6 +27,10 @@
         </view>
       </view>
     </view>
+    <view class="card medium-margin-top-spacer space-between-center-container">
+      <chat-message-tag :toUser="oppositeParty" />
+      <text :class="statusTextStyle">{{ statusText }}</text>
+    </view>
     <view class="card medium-margin-top-spacer">
       <text class="h3 black bold">想要物品</text>
       <application-line-breaker />
@@ -96,11 +100,14 @@ import {
   BARTER_ORDER_DETAIL_PAGE,
   getRouterJsonParam,
 } from "../../route/applicationRoute";
+import { convertSystemDateToDisplayDateYear } from "../../util/dateUtil";
 import {
-  convertSystemDateToDisplayDateYear,
-  hoursDifference,
-} from "../../util/dateUtil";
-import { getBarterRequestInfo } from "../../common/barterRequest/barterRequestUtil";
+  getBarterRequestExpiryCountDown,
+  getBarterRequestInfo,
+  getBarterRequestStatusLabel,
+  getBarterRequestStyleByStatus,
+  getOppositePartyUser,
+} from "../../common/barterRequest/barterRequestUtil";
 import {
   GET_BARTER_ORDER_BY_BARTER_REQUEST_ID,
   GET_BARTER_REQUEST_BY_ID,
@@ -113,6 +120,7 @@ import {
   BARTER_REQUEST_PENDING,
   BARTER_REQUEST_REJECTED,
 } from "../../enum/barterRequestStatus";
+import ChatMessageTag from "../../components/navigationButton/chat/chatMessageTag.vue";
 
 export default {
   components: {
@@ -120,18 +128,11 @@ export default {
     ApplicationLineBreaker,
     SoldItem,
     BarterRequestPriceDifferenceRow,
+    ChatMessageTag,
   },
   computed: {
     expiryCountDown() {
-      let hours = hoursDifference(this.barterRequest.expiryDate);
-      let day = Math.floor(hours / 24);
-      hours %= 24;
-      let text = "";
-      if (day > 0) {
-        text += `${day}天`;
-      }
-      text += `${hours}小時後自動取消`;
-      return text;
+      return getBarterRequestExpiryCountDown(this.barterRequest);
     },
     info() {
       return getBarterRequestInfo(this.barterRequest, this.$store);
@@ -140,6 +141,9 @@ export default {
       return (
         this.barterRequest.barterRequestStatus === BARTER_REQUEST_PENDING.key
       );
+    },
+    oppositeParty() {
+      return getOppositePartyUser(this.barterRequest);
     },
     showOffererButton() {
       return (
@@ -157,6 +161,12 @@ export default {
         this.barterRequest.barterRequestStatus === BARTER_REQUEST_PENDING.key &&
         this.barterRequestType === BARTER_ROLE_RECEIVER.key
       );
+    },
+    statusText() {
+      return getBarterRequestStatusLabel(this.barterRequest);
+    },
+    statusTextStyle() {
+      return getBarterRequestStyleByStatus(this.barterRequest);
     },
   },
   data() {

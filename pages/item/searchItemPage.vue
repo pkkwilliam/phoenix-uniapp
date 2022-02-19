@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <search-bar @search="onClickSearch" />
+    <search-bar class="medium-margin-top-spacer" @search="onClickSearch" />
     <view class="medium-margin-top-spacer">
       <waterfall-item-pagination
         ref="paginationWaterFallRef"

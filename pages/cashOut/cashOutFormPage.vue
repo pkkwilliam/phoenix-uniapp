@@ -45,15 +45,18 @@
       </view>
     </view>
     <u-modal
-      v-model="showConfirmModal"
+      :show="showConfirmModal"
       :show-confirm-button="false"
       :show-title="false"
     >
-      <view class="confirm-modal">
-        <u-icon name="close" @click="() => (showConfirmModal = false)" />
+      <view class="confirm-modal full-width">
+        <view class="flex-end-center-container">
+          <u-icon name="close" @click="() => (showConfirmModal = false)" />
+        </view>
         <view>
           <cash-out-estimate-and-confirm
             ref="cashOutEstimateAndConfirmRef"
+            :cashOutEstimate="cashOutEstimate"
             :cashOutType="cashOutType"
             :cashOutValue="amount"
             :toBankAccount="toBankAccount"
@@ -68,11 +71,8 @@
 import dropdownSelectableBankAccount from "../../common/bank/dropdownSelectableBankAccount.vue";
 import PrimaryButton from "../../common/button/primaryButton.vue";
 import DisplayCurrencyFishCoin from "../../common/displayCurrency/displayCurrencyFishCoin.vue";
-import {
-  CASH_OUT_HISTORY_PAGE,
-  getRouterJsonParam,
-} from "../../route/applicationRoute";
-import { CREATE_CASH_OUT } from "../../service/service";
+import { getRouterJsonParam } from "../../route/applicationRoute";
+import { GET_CASH_OUT_ESTIMATE } from "../../service/service";
 import { CASH_OUT_TYPE_FISH_COIN } from "../../enum/cashOutType";
 import CashOutEstimateAndConfirm from "../../common/cashOut/cashOutEstimateAndConfirm.vue";
 import CurrencyRatio from "../../common/currencyRatio/currencyRatio.vue";
@@ -106,6 +106,7 @@ export default {
   data() {
     return {
       amount: undefined,
+      cashOutEstimate: undefined,
       cashOutType: CASH_OUT_TYPE_FISH_COIN.key,
       loading: false,
       toBankAccount: undefined,
@@ -114,10 +115,10 @@ export default {
   },
   methods: {
     async onClickSubmit() {
+      this.cashOutEstimate = await this.execute(
+        GET_CASH_OUT_ESTIMATE(this.cashOutType, this.amount)
+      );
       this.showConfirmModal = true;
-      this.$nextTick(function () {
-        this.$refs.cashOutEstimateAndConfirmRef.getCashOutEstimate();
-      });
     },
     onSelectToBankAccount(toBankAccount) {
       this.toBankAccount = toBankAccount;

@@ -1,7 +1,6 @@
   <template>
   <view>
-    <!-- <u-search
-      class="bar"
+    <u-search
       placeholder="高達Exia"
       shape="round"
       v-model="value"
@@ -14,7 +13,7 @@
       @search="$emit('search', value)"
       @custom="$emit('search', value)"
       @click="$emit('click')"
-    /> -->
+    />
   </view>
 </template>
 

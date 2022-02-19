@@ -31,14 +31,11 @@
 <script>
 import { BARTER_REQUEST_DETAIL_PAGE } from "../../route/applicationRoute";
 import userCardMini from "../user/userCardMini.vue";
-import {
-  BARTER_REQUEST_APPROVED,
-  BARTER_REQUEST_PENDING,
-  getBarterRequestLabelByKey,
-} from "../../enum/barterRequestStatus";
 import SoldItem from "../item/soldItem.vue";
 import {
   getBarterRequestInfo,
+  getBarterRequestStatusLabel,
+  getBarterRequestStyleByStatus,
   getOppositePartyUser,
 } from "./barterRequestUtil";
 export default {
@@ -51,22 +48,10 @@ export default {
       return getBarterRequestInfo(this.barterRequest);
     },
     statusText() {
-      return getBarterRequestLabelByKey(
-        this.barterRequest.barterRequestStatus,
-        this.barterRequest.barterRole
-      );
+      return getBarterRequestStatusLabel(this.barterRequest);
     },
     statusTextStyle() {
-      let style = "h4 bold ";
-      const { barterRequestStatus } = this.barterRequest;
-      if (barterRequestStatus === BARTER_REQUEST_APPROVED.key) {
-        style += "green";
-      } else if (barterRequestStatus === BARTER_REQUEST_PENDING.key) {
-        style += "orange";
-      } else {
-        style += "secondary";
-      }
-      return style;
+      return getBarterRequestStyleByStatus(this.barterRequest);
     },
   },
   methods: {

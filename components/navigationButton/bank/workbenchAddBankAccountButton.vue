@@ -1,13 +1,9 @@
 <template>
   <view class="space-between-center-container">
     <view class="row-center-container">
-      <u-icon
-        custom-prefix="phoenix-custom-icon"
-        name="bank-account"
-        size="38"
-      />
+      <u-icon name="list" size="20" />
       <view class="small-margin-left-spacer">
-        <text>未有提取現金的銀行賬戶</text>
+        <text class="h3">未有提取現金的銀行賬戶</text>
       </view>
     </view>
     <border-button

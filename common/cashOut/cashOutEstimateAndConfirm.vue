@@ -3,15 +3,8 @@
     <view class="column-center-center-container">
       <!-- <text>提款</text> -->
       <view class="cash-out-container">
-        <u-icon
-          class="icon-container"
-          custom-prefix="phoenix-custom-icon"
-          name="dollar"
-          size="38"
-          :top="-8"
-        />
         <text class="cash-out-mop">
-          {{ cashOutEstimate.cashOutMop.toFixed(2) }}
+          ${{ cashOutEstimate.cashOutMop.toFixed(2) }}
         </text>
       </view>
     </view>
@@ -39,7 +32,7 @@
 <script>
 import ApplicationLineBreaker from "../../components/applicationLineBreaker.vue";
 import { CASH_OUT_HISTORY_PAGE } from "../../route/applicationRoute";
-import { CREATE_CASH_OUT, GET_CASH_OUT_ESTIMATE } from "../../service/service";
+import { CREATE_CASH_OUT } from "../../service/service";
 import CurrencyRatio from "../currencyRatio/currencyRatio.vue";
 export default {
   components: { CurrencyRatio, ApplicationLineBreaker },
@@ -48,16 +41,10 @@ export default {
       return this.cashOutEstimate.commissionFeeRate * 100;
     },
   },
-  data() {
-    return { cashOutEstimate: {} };
-  },
+  // data() {
+  //   return { cashOutEstimate: {} };
+  // },
   methods: {
-    async getCashOutEstimate() {
-      const cashOutEstimate = await this.execute(
-        GET_CASH_OUT_ESTIMATE(this.cashOutType, this.cashOutValue)
-      );
-      this.cashOutEstimate = cashOutEstimate;
-    },
     async onClickSubmit() {
       const response = await this.execute(
         CREATE_CASH_OUT({
@@ -71,6 +58,7 @@ export default {
     },
   },
   props: {
+    cashOutEstimate: Object,
     cashOutType: String,
     cashOutValue: String,
     toBankAccount: Object,
