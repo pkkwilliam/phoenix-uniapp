@@ -6,12 +6,16 @@
       name="fish_baby"
       size="38"
     /> -->
+    <!-- <application-icon iconName="fish-coin" /> -->
     <text class="h4 blue">以物換物</text>
   </view>
 </template>
 
 <script>
-export default {};
+import applicationIcon from "../../common/icon/applicationIcon.vue";
+export default {
+  components: { applicationIcon },
+};
 </script>
 
 <style scoped lang="scss">

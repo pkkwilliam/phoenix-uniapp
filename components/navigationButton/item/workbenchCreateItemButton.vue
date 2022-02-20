@@ -24,7 +24,7 @@ export default {
   computed: {},
   methods: {
     onClick() {
-      uni.navigateTo({ url: CREATE_ITEM_TAB().url });
+      uni.navigateTo({ ...CREATE_ITEM_TAB() });
     },
   },
 };

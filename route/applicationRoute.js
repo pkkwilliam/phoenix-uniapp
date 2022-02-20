@@ -135,6 +135,8 @@ export const USER_PAGE = (userSid, description, imageUrl) => ({
 // tab
 export const CREATE_ITEM_TAB = (itemId) => ({
   url: "/pages/createItemPage?itemId=" + JSON.stringify(itemId),
+  animationType: "slide-in-bottom",
+  animationDuration: 300,
 });
 export const LANDING_TAB = () => ({
   url: "/pages/index/tabbar",

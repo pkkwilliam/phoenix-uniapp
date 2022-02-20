@@ -1,25 +1,21 @@
 <template>
   <view class="row-center-container">
-    <!-- <u-icon
-      class="icon-container light-blue"
-      custom-prefix="phoenix-custom-icon"
-      name="fish_coin"
-      :size="iconSize"
-      :top="0"
-    /> -->
+    <application-icon iconName="fish-coin" :size="iconSize" />
     <text :class="text">{{ value }}</text>
   </view>
 </template>
 
 <script>
+import applicationIcon from "../icon/applicationIcon.vue";
 export default {
+  components: { applicationIcon },
   computed: {
     iconSize() {
       switch (this.size) {
         case "large":
-          return 78;
+          return 36;
         default:
-          return 38;
+          return 18;
       }
     },
     text() {
@@ -52,9 +48,11 @@ export default {
 .default-text {
   color: $u-phoenix-blue;
   font-size: 34rpx;
+  margin-left: 3px;
 }
 .large-text {
   color: $u-phoenix-blue;
   font-size: 72rpx;
+  margin-left: 16px;
 }
 </style>

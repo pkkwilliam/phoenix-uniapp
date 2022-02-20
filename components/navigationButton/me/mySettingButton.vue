@@ -1,12 +1,14 @@
 <template>
   <view class="row-center-container" @click="onClick">
-    <u-icon name="setting" size="26" />
+    <application-icon iconName="gear" />
   </view>
 </template>
 
 <script>
+import applicationIcon from "../../../common/icon/applicationIcon.vue";
 import { MY_SETTING_PAGE } from "../../../route/applicationRoute";
 export default {
+  components: { applicationIcon },
   methods: {
     onClick() {
       uni.navigateTo({ url: MY_SETTING_PAGE().url });

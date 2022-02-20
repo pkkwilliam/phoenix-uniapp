@@ -1,12 +1,13 @@
 <template>
   <view class="row-center-container">
-    <u-icon class="icon-container black" name="rmb" :size="iconSize" :top="0" />
-    <text :class="text">{{ value }}</text>
+    <text :class="text">${{ value }}</text>
   </view>
 </template>
 
 <script>
+import applicationIcon from "../icon/applicationIcon.vue";
 export default {
+  components: { applicationIcon },
   computed: {
     iconSize() {
       switch (this.size) {

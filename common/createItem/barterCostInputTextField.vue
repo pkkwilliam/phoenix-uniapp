@@ -3,7 +3,7 @@
     <view class="align-end-container">
       <u-button
         class="fit-content-button"
-        size="mini"
+        size="small"
         shape="circle"
         type="primary"
         :disabled="disabledConfirmButton"
@@ -33,7 +33,7 @@
       <u-input
         border="none"
         class="textfield"
-        placeholder="MOP 0.00"
+        placeholder="10🐟 約等於 1 MOP"
         type="number"
         v-model="price"
         :clearable="false"

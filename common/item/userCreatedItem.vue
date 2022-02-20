@@ -90,7 +90,7 @@ export default {
       });
     },
     onClickEdit() {
-      uni.navigateTo({ url: CREATE_ITEM_TAB(this.item.id).url });
+      uni.navigateTo({ ...CREATE_ITEM_TAB(this.item.id) });
     },
     onClickItem() {
       uni.navigateTo({ url: ITEM_DETAIL_PAGE(this.item.id).url });

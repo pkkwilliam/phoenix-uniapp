@@ -1,12 +1,12 @@
 <template>
   <view class="safearea-container">
     <view class="container">
-      <view class="space-between-center-container">
-        <text class="h5" @click="onClickCancel">取消</text>
+      <view class="space-between-center-container medium-margin-top-spacer">
+        <text class="h4" @click="onClickCancel">取消</text>
         <u-button
           class="submit-button fit-content-button"
           shape="circle"
-          size="mini"
+          size="small"
           type="primary"
           :disabled="disabledSubmitButton"
           :loading="loading"
@@ -157,21 +157,18 @@ export default {
         selectedMedia,
         selectedSubCategory,
       } = this;
-      const {
-        allowFaceToFace,
-        price,
-        originalPrice,
-        selectedShippingChargeType,
-        shippingCost,
-      } = this?.deliveryTypeAndShippingCharge ?? {};
+      const { price } = this.deliveryTypeAndShippingCharge;
       if (selectedMedia.inProgress) {
         return true;
       }
       return (
         !description ||
+        price === undefined ||
+        price < 0 ||
         !selectedAreaLocation ||
         !selectedCategory ||
         !selectedItemCondition ||
+        !selectedSubCategory ||
         selectedMedia.mediaUrls.length === 0
       );
     },
@@ -191,7 +188,7 @@ export default {
   data() {
     return {
       id: undefined,
-      deliveryTypeAndShippingCharge: { price: 0 },
+      deliveryTypeAndShippingCharge: { price: undefined },
       description: undefined,
       isEdit: false,
       itemType: ITEM_TYPE_BARTER.key,

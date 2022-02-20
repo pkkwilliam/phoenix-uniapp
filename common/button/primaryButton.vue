@@ -30,7 +30,7 @@ export default {
       type: Boolean,
     },
     size: {
-      default: "medium",
+      default: "small",
       type: String,
     },
   },
@@ -42,7 +42,6 @@ export default {
   color: black;
   background-color: $u-phoenix-primary;
   border-color: $u-phoenix-primary;
-  font-family: monospace;
   font-weight: bold;
 }
 </style>

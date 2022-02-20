@@ -108,7 +108,7 @@ export default {
       if (!this.isLogin() && pageRequireAuth) {
         uni.navigateTo({ url: LOGIN_PAGE().url });
       } else if (page === CREATE_ITEM_PAGE_TAB) {
-        uni.navigateTo({ url: CREATE_ITEM_TAB().url });
+        uni.navigateTo({ ...CREATE_ITEM_TAB() });
       } else {
         this.page = page;
       }

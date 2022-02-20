@@ -6,11 +6,7 @@
       @click="onClick(menuItem)"
     >
       <view class="row-center-container button">
-        <u-icon
-          custom-prefix="phoenix-custom-icon"
-          :name="menuItem.iconName"
-          size="20"
-        />
+        <application-icon :iconName="menuItem.iconName" />
         <text class="h4 label">{{ menuItem.label }}</text>
       </view>
       <application-line-breaker v-if="index < menuItems.length - 1" />
@@ -19,6 +15,7 @@
 </template>
 
 <script>
+import ApplicationIcon from "../../common/icon/applicationIcon.vue";
 import {
   ADDRESS_SELECTION_PAGE,
   BUSINESS_PAGE,
@@ -29,17 +26,22 @@ import ApplicationLineBreaker from "../applicationLineBreaker.vue";
 export default {
   components: {
     ApplicationLineBreaker,
+    ApplicationIcon,
   },
   computed: {
     menuItems() {
       return [
         {
-          iconName: "map",
+          iconName: "location",
           label: "收貨地址",
           toPage: ADDRESS_SELECTION_PAGE,
         },
-        { iconName: "file-text", label: "申請企業賬號", toPage: BUSINESS_PAGE },
-        { iconName: "rmb-circle", label: "充值方法", toPage: REFILL_INFO_PAGE },
+        {
+          iconName: "company-verified",
+          label: "申請企業賬號",
+          toPage: BUSINESS_PAGE,
+        },
+        { iconName: "refill", label: "充值方法", toPage: REFILL_INFO_PAGE },
       ];
     },
   },
