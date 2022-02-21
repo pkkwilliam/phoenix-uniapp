@@ -16,13 +16,21 @@
         </u-button>
       </view>
       <view class="medium-margin-top-spacer">
-        <u--textarea
+        <!-- <u--textarea
           border="none"
           v-model="description"
           placeholder="說說你的使用感受，入手渠道，轉手原因..."
           :height="120"
           :maxlength="9999"
-        ></u--textarea>
+        ></u--textarea> -->
+        <u-input-v-1
+          placeholder="說說你的使用感受，入手渠道，轉手原因..."
+          type="textarea"
+          v-model="description"
+          :autoHeight="true"
+          :height="200"
+          :maxlength="9999"
+        />
       </view>
       <!-- image upload -->
       <view class="medium-margin-top-spacer">
@@ -123,6 +131,7 @@ import AutoMediaUploaderV2 from "../common/media/autoMediaUploaderV2.vue";
 import { ITEM_DELIVERY_TYPE_FACE_TO_FACE } from "../enum/itemDeliveryType";
 import { ITEM_TYPE_BARTER } from "../enum/itemType";
 import AutoMediaUploaderV3 from "../common/media/autoMediaUploaderV3.vue";
+import UInputV1 from "../uni_modules/uview-ui/components/u-input-v1/u-input-v1.vue";
 export default {
   components: {
     PrimaryButton,
@@ -139,6 +148,7 @@ export default {
     AutoMediaUploader,
     AutoMediaUploaderV2,
     AutoMediaUploaderV3,
+    UInputV1,
   },
   computed: {
     displayPrice() {

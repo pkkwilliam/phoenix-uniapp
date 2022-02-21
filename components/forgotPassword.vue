@@ -1,7 +1,7 @@
 <template>
   <view style="padding: 10px">
     <!-- <u--form :model="form" ref="uForm"> -->
-    <u--form labelPosition="top" :model="form" ref="uForm" labelWidth="auto">
+    <u--form labelPosition="top" ref="uForm" labelWidth="auto">
       <u-form-item label="電話">
         <selectable-country-code
           class="medium-margin-right-spacer"
@@ -10,10 +10,11 @@
         <u--input
           border="none"
           placeholder="請輸入你的手機號"
+          type="number"
           v-model="smsNumber"
-          :type="text"
         />
         <u-button
+          class="fit-content-button"
           :disabled="requestVerificationButtonDisabled"
           size="mini"
           slot="right"
@@ -26,6 +27,7 @@
         <u--input
           border="none"
           placeholder="請輸入由信息驗證碼"
+          type="number"
           v-model="oneTimePassword"
         />
       </u-form-item>
@@ -57,6 +59,7 @@
 
 <script>
 import selectableCountryCode from "../common/phoneNumber/selectableCountryCode.vue";
+import { LANDING_TAB } from "../route/applicationRoute";
 import {
   FORGOT_PASSWORD_REQUEST_VERIFICATION,
   FORGOT_PASSWORD_VERIFY,
@@ -87,6 +90,7 @@ export default {
     return {
       countryCode: "853",
       disableRequestVerificationButton: false,
+      interval: undefined,
       messageResetCountDown: 0,
       oneTimePassword: "",
       password: "",
@@ -99,10 +103,10 @@ export default {
   methods: {
     onClickRequestVerify() {
       this.disableRequestVerificationButton = true;
-      const { countryCodes, selectedCountryCodeIndex, smsNumber } = this;
+      const { countryCode, smsNumber } = this;
       this.execute(
         FORGOT_PASSWORD_REQUEST_VERIFICATION({
-          countryCode: countryCodes[selectedCountryCodeIndex].value,
+          countryCode,
           smsNumber,
         })
       )
@@ -117,11 +121,10 @@ export default {
     },
     async onClickVerify() {
       const {
-        countryCodes,
+        countryCode,
         oneTimePassword,
         password,
         passwordConfirm,
-        selectedCountryCodeIndex,
         smsNumber,
       } = this;
       if (password !== passwordConfirm) {
@@ -132,7 +135,7 @@ export default {
       } else {
         this.execute(
           FORGOT_PASSWORD_VERIFY({
-            countryCode: COUNTRY_CODES[selectedCountryCodeIndex].value,
+            countryCode,
             oneTimePassword,
             password,
             smsNumber,
@@ -146,10 +149,13 @@ export default {
       }
     },
     startCountDown() {
+      if (this.interval) {
+        clearInterval(this.interval);
+      }
       this.messageResetCountDown = 60;
-      const interval = setInterval(() => {
+      this.interval = setInterval(() => {
         if (this.messageResetCountDown <= 0) {
-          interval.clear();
+          clearInterval(this.interval);
         }
         this.messageResetCountDown--;
       }, 1000);

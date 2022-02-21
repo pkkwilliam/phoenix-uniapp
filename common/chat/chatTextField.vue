@@ -48,11 +48,11 @@ export default {
           messageContent: MESSAGE_CONTENT_MESSAGE_STRING.key,
           messageType: MESSAGE_TYPE_PRIVATE.key,
         };
-        this.text = undefined;
         const response = await this.execute(
           CREATE_CHAT_MESSAGE(this.toUserSid, requestBody)
         );
         updateMessages(this.$store, [response]);
+        this.text = undefined;
       }
     },
     getCleanMessageText(text) {
