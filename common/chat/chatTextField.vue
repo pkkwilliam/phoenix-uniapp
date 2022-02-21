@@ -36,16 +36,30 @@ export default {
   },
   methods: {
     async onClickSubmit() {
-      const requestBody = {
-        content: this.text,
-        messageContent: MESSAGE_CONTENT_MESSAGE_STRING.key,
-        messageType: MESSAGE_TYPE_PRIVATE.key,
-      };
-      this.text = undefined;
-      const response = await this.execute(
-        CREATE_CHAT_MESSAGE(this.toUserSid, requestBody)
-      );
-      updateMessages(this.$store, [response]);
+      const text = this.getCleanMessageText(this.text);
+      if (text === "") {
+        uni.showToast({
+          title: "不能發送空白消息",
+          icon: "none",
+        });
+      } else {
+        const requestBody = {
+          content: this.getCleanMessageText(this.text),
+          messageContent: MESSAGE_CONTENT_MESSAGE_STRING.key,
+          messageType: MESSAGE_TYPE_PRIVATE.key,
+        };
+        this.text = undefined;
+        const response = await this.execute(
+          CREATE_CHAT_MESSAGE(this.toUserSid, requestBody)
+        );
+        updateMessages(this.$store, [response]);
+      }
+    },
+    getCleanMessageText(text) {
+      while (text.length > 0 && text.charAt(0) === " ") {
+        text = text.substring(1, text.length);
+      }
+      return text;
     },
   },
   props: {
