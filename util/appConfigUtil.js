@@ -6,7 +6,7 @@ const PROD_SERVICE_URL = "https://phoenix-api.bitcode-lab.com";
 export function getServiceUrl() {
   console.log("env:", process.env.NODE_ENV);
   if (process.env.NODE_ENV === "development") {
-    return DEVELOP_SERVICE_URL;
+    return UAT_SERVICE_URL;
   } else {
     return PROD_SERVICE_URL;
   }

@@ -9,7 +9,7 @@
         :key="index"
       />
     </view>
-    <view class="cu-bar foot">
+    <view class="cu-bar foot bottom-container">
       <view class="full-width chat-text-field">
         <chat-text-field :toUserSid="toUserSid" />
       </view>
@@ -52,6 +52,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.bottom-container {
+  background: $u-phoenix-white;
+}
 .chat-text-field {
   background: white;
   padding: 10px;

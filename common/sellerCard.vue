@@ -6,7 +6,7 @@
         <text class="description">{{ userDescription }}</text>
       </view>
       <view>
-        <u-avatar size="38" :src="userAvatarImageUrl" />
+        <u-avatar mode="aspectFill" size="38" :src="userAvatarImageUrl" />
       </view>
     </view>
     <u-tag text="電話已認證" type="success" />

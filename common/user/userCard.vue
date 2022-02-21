@@ -2,7 +2,11 @@
   <view class="full-width">
     <view class="row-center-container" @click="onClick">
       <view>
-        <u-avatar :size="avatarSize" :src="userAvatarImageUrl" />
+        <u-avatar
+          mode="aspectFill"
+          :size="avatarSize"
+          :src="userAvatarImageUrl"
+        />
       </view>
       <view class="column-container text-container">
         <text class="h3 black">{{ userNickname }}</text>

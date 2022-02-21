@@ -357,11 +357,14 @@ export const GET_UNRECEIVED_CHAT_MESSAGE = (pageRequest, pageSize) => ({
 });
 
 export const UPDATE_OPPOSITE_USER_CHAT_MESSAGE_RECEIVED = (
-  oppositeUserSid
+  oppositeUserSid,
+  chatMessageIds
 ) => ({
   authenticatedRequest: true,
   method: PUT_METHOD,
-  url: USER_CHAT_MESSAGE + `/received/${oppositeUserSid}`,
+  url:
+    USER_CHAT_MESSAGE +
+    `/received/${oppositeUserSid}?chatMessageIds=${chatMessageIds}`,
 });
 
 //

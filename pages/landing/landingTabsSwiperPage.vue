@@ -57,6 +57,7 @@ import ScanQrCodeButton from "../../components/navigationButton/item/scanQrCodeB
 import ItemCategoryWaterfall from "../../components/item/itemCategoryWaterfall.vue";
 import SwipterItemScrollViewWrapper from "./swipterItemScrollViewWrapper.vue";
 import { processPushNotificationToken } from "../../util/notificationUtil";
+import { startWebsocket } from "../../util/chatUtil";
 export default {
   components: {
     LandingPage,
@@ -108,6 +109,7 @@ export default {
   mounted() {
     this.$appStateService.getUserProfile();
     processPushNotificationToken(this);
+    startWebsocket(this.execute, this.$store);
   },
   async onPullDownRefresh() {
     uni.stopPullDownRefresh();

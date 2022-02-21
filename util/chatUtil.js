@@ -90,7 +90,7 @@ export function organizeMessages(currentMessages, newMessages) {
 
 export function onChatWithMessageRead(execute, store, userSid) {
   setLocalUserMessageRead(store, userSid);
-  execute(UPDATE_OPPOSITE_USER_CHAT_MESSAGE_RECEIVED(userSid));
+  // execute(UPDATE_OPPOSITE_USER_CHAT_MESSAGE_RECEIVED(userSid));
 }
 
 export function setLocalUserMessageRead(store, userSid) {
@@ -123,6 +123,7 @@ export function startWebsocket(execute, store) {
       totalServerPage = totalPage;
       currentStorageMessages = updateMessages(store, content);
       updateMessageUnreceivedCount(store, totalElements);
+      updateServerMessageReceived(execute, content);
     } while (pageRequest++ < totalServerPage);
   };
   if (store.state.chatWebSocket.dirty) {
@@ -139,6 +140,12 @@ export function updateMessages(store, chatMessages) {
   );
   saveMessages(updateMessage);
   store.commit("setChat", updateMessage);
+}
+
+export function updateServerMessageReceived(execute, chatMessages) {
+  let { sid } = chatMessages[0].chatWith;
+  let chatMessageIds = chatMessages.map((chatMessage) => chatMessage.id);
+  execute(UPDATE_OPPOSITE_USER_CHAT_MESSAGE_RECEIVED(sid, chatMessageIds));
 }
 
 export function updateMessageUnreceivedCount(store, unreceivedCount) {

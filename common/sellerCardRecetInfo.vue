@@ -1,7 +1,7 @@
 <template>
   <view class="personal-info-container">
     <view class="avatar-container">
-      <u-avatar size="38" :src="userAvatarImageUrl" />
+      <u-avatar mode="aspectFill" size="38" :src="userAvatarImageUrl" />
     </view>
     <view class="text-container">
       <text class="nickname">{{ userNickname }}</text>

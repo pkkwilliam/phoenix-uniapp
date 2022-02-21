@@ -1,6 +1,6 @@
 <template>
   <view class="row-center-container" @click="onClick">
-    <u-avatar size="28" :src="userAvatarImageUrl" />
+    <u-avatar mode="aspectFill" size="28" :src="userAvatarImageUrl" />
     <text class="h5 secondary nickname-text">{{ userNickname }}</text>
     <u-icon
       class="icon"
