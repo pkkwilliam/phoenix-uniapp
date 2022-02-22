@@ -2,8 +2,8 @@
     "name" : "摸魚",
     "appid" : "__UNI__E6FB175",
     "description" : "多平台快速开发的UI框架",
-    "versionName" : "1.0.24",
-    "versionCode" : 1024,
+    "versionName" : "1.0.25",
+    "versionCode" : 1025,
     "transformPx" : false,
     "app-plus" : {
         "locales" : {
