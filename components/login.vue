@@ -22,7 +22,6 @@
         />
       </u-form-item>
       <u-button
-        class="fit-content-button"
         type="primary"
         :disabled="sumbitButtonDisabled"
         @click="onClickLogin"

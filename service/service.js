@@ -606,6 +606,12 @@ export const GET_USER_PROFILE = () => ({
   url: USER_PROFILE,
 });
 
+export const GET_USER_PROFILE_BY_SID = (userSid) => ({
+  authenticatedRequest: true,
+  method: GET_METHOD,
+  url: USER_PROFILE + `/${userSid}`,
+});
+
 export const LINK_USER_PUSH_NOTIFICATION_TOKEN = (request) => ({
   authenticatedRequest: true,
   body: JSON.stringify(request),

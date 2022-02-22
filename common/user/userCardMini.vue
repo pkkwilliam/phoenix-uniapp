@@ -33,7 +33,12 @@ export default {
   },
   methods: {
     onClick() {
-      if (this.clickable) {
+      if (!this.clickable) {
+        return;
+      }
+      if (!this.isLogin()) {
+        uni.navigateTo({ ...LOGIN_PAGE() });
+      } else {
         uni.navigateTo({
           url: USER_PAGE(
             this.user.sid,

@@ -25,7 +25,7 @@
 <script>
 import DislikeAuthorButton from "../../components/dislikeAuthor/dislikeAuthorButton.vue";
 import PhoneNumberVerifiedTag from "../../components/tag/phoneNumberVerifiedTag.vue";
-import { USER_PAGE } from "../../route/applicationRoute";
+import { LOGIN_PAGE, USER_PAGE } from "../../route/applicationRoute";
 
 export default {
   components: { PhoneNumberVerifiedTag, DislikeAuthorButton },
@@ -46,10 +46,17 @@ export default {
   },
   methods: {
     onClick() {
-      uni.navigateTo({
-        url: USER_PAGE(this.user.sid, this.user.description, this.user.imageUrl)
-          .url,
-      });
+      if (!this.isLogin()) {
+        uni.navigateTo({ ...LOGIN_PAGE() });
+      } else {
+        uni.navigateTo({
+          url: USER_PAGE(
+            this.user.sid,
+            this.user.description,
+            this.user.imageUrl
+          ).url,
+        });
+      }
     },
   },
   props: {

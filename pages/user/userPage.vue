@@ -1,5 +1,5 @@
 <template>
-  <view class="container">
+  <view class="container" :v-if="loaded">
     <view class="space-between-center-container medium-margin-top-spacer">
       <u-avatar size="88" :src="userAvatarImageUrl" />
       <view class="column-center-container">
@@ -37,7 +37,8 @@
         >
           <template v-slot:content="{ data }">
             <view class="card medium-margin-top-spacer">
-              <view class="align-end-container">
+              <view class="space-between-center-container">
+                <item-status-text :item="data" />
                 <display-currency-fish-coin class="price" :value="data.price" />
               </view>
               <user-save-item :item="data" />
@@ -50,11 +51,14 @@
 </template>
 
 <script>
-import { getRouterJsonParam, USER_PAGE } from "../../route/applicationRoute";
+import { getRouterParam, USER_PAGE } from "../../route/applicationRoute";
 import PhoneNumberVerifiedTag from "../../components/tag/phoneNumberVerifiedTag.vue";
 import UserSubscribeButton from "../../components/subscribe/UserSubscribeButton.vue";
 import PaginationItemDisplay from "../../common/itemDisplayList/paginationItemDisplay.vue";
-import { GET_ITEMS_BY_USER_ID } from "../../service/service";
+import {
+  GET_ITEMS_BY_USER_ID,
+  GET_USER_PROFILE_BY_SID,
+} from "../../service/service";
 import UserSaveItem from "../../common/item/userSaveItem.vue";
 import StrikeThroughCurrencyPrice from "../../common/strikeThroughCurrencyPrice.vue";
 import ApplicationLineBreaker from "../../components/applicationLineBreaker.vue";
@@ -64,6 +68,7 @@ import UserFansCountButton from "../../components/navigationButton/user/userFans
 import DisplayCurrencyFishCoin from "../../common/displayCurrency/displayCurrencyFishCoin.vue";
 import ChatMessageButton from "../../components/navigationButton/chat/chatMessageButton.vue";
 import DislikeAuthorButton from "../../components/dislikeAuthor/dislikeAuthorButton.vue";
+import ItemStatusText from "../../components/item/itemStatusText.vue";
 export default {
   components: {
     PaginationItemDisplay,
@@ -78,6 +83,7 @@ export default {
     DisplayCurrencyFishCoin,
     ChatMessageButton,
     DislikeAuthorButton,
+    ItemStatusText,
   },
   computed: {
     userAvatarImageUrl() {
@@ -88,23 +94,20 @@ export default {
     },
   },
   data() {
-    return { user: undefined };
+    return { loaded: false, user: {} };
   },
   methods: {
     getItemsByUserId(pageRequest, pageSize) {
       return GET_ITEMS_BY_USER_ID(this.user.sid, pageRequest, pageSize);
     },
+    async getUserByUserSid(userSid) {
+      this.user = await this.execute(GET_USER_PROFILE_BY_SID(userSid));
+    },
   },
   async onLoad(options) {
-    const { userSid, description, imageUrl } = getRouterJsonParam(
-      options,
-      "user"
-    );
-    this.user = {
-      sid: userSid,
-      description,
-      imageUrl,
-    };
+    this.user.sid = getRouterParam(options, "userSid");
+    await this.getUserByUserSid(this.user.sid);
+    this.loaded = true;
   },
   onReachBottom() {
     this.$appStateService.setItemPagination(USER_PAGE);

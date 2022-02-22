@@ -11,7 +11,7 @@
         </view>
         <view
           class="column-center-center-container medium-margin-top-spacer"
-          v-if="!item.active"
+          v-if="!orderable"
         >
           <text class="h4 secondary">此物品已失效，要不要看一下其他?</text>
         </view>
@@ -35,14 +35,14 @@
           <primary-button
             class="medium-margin-right-spacer"
             label="我想要"
-            :disabled="!item.active"
+            :disabled="!orderable"
             @onClick="() => onClickSubmit('PURCHASE')"
           />
 
           <primary-button
             class="medium-margin-right-spacer"
             label="我想換"
-            :disabled="!item.active"
+            :disabled="!orderable"
             @onClick="() => onClickSubmit('BARTER')"
           />
         </view>
@@ -68,6 +68,7 @@ import SaveItemButton from "../components/item/saveItemButton.vue";
 import StickBottomBar from "../common/navigation/stickBottomBar.vue";
 import PrimaryButton from "../common/button/primaryButton.vue";
 import ChatMessageButton from "../components/navigationButton/chat/chatMessageButton.vue";
+import { ITEM_STATUS_ACTIVE } from "../enum/itemStatus";
 
 export default {
   components: {
@@ -80,6 +81,11 @@ export default {
     StickBottomBar,
     PrimaryButton,
     ChatMessageButton,
+  },
+  computed: {
+    orderable() {
+      return this.item.itemStatus === ITEM_STATUS_ACTIVE.key;
+    },
   },
   data() {
     return {

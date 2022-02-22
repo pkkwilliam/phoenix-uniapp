@@ -8,7 +8,9 @@ export default {
   methods: {
     onClick() {
       this.logout();
-      uni.navigateTo({ url: LANDING_TAB().url });
+      uni.reLaunch({
+        url: LANDING_TAB().url,
+      });
     },
   },
 };

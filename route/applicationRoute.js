@@ -126,11 +126,7 @@ export const WORKBENCH_PAGE = () => ({
   url: "/pages/workbenchPage",
 });
 export const USER_PAGE = (userSid, description, imageUrl) => ({
-  url: `/pages/user/userPage?user=${JSON.stringify({
-    userSid,
-    description,
-    imageUrl,
-  })}`,
+  url: `/pages/user/userPage?userSid=${userSid}`,
 });
 // tab
 export const CREATE_ITEM_TAB = (itemId) => ({
@@ -145,4 +141,8 @@ export const ME_TAB = () => ({ url: "/pages/index/me" });
 
 export function getRouterJsonParam(option, paramName) {
   return JSON.parse(option[paramName]);
+}
+
+export function getRouterParam(option, paramName) {
+  return option[paramName];
 }
