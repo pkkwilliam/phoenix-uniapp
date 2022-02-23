@@ -16,12 +16,19 @@
 <script>
 import userCreatedItem from "../../common/item/userCreatedItem.vue";
 import paginationItemDisplay from "../../common/itemDisplayList/paginationItemDisplay.vue";
-import { GET_CREATED_ITEMS } from "../../service/service";
+import { ITEM_STATUS_ACTIVE } from "../../enum/itemStatus";
+import { GET_ITEMS_BY_USER_ID } from "../../service/service";
 export default {
   components: { paginationItemDisplay, userCreatedItem },
   methods: {
     getCreatedItemServiceRequest(pageRequest, pageSize) {
-      return GET_CREATED_ITEMS(pageRequest, pageSize);
+      const itemStatuses = [ITEM_STATUS_ACTIVE.key];
+      return GET_ITEMS_BY_USER_ID(
+        this.$store.state.userProfile.profile.sid,
+        itemStatuses,
+        pageRequest,
+        pageSize
+      );
     },
     onItemUpdated() {
       this.$refs.paginationItemDisplayRef.resetPagination();

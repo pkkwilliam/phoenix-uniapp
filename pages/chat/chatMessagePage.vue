@@ -11,7 +11,10 @@
     </view>
     <view class="cu-bar foot bottom-container">
       <view class="full-width chat-text-field">
-        <chat-text-field :toUserSid="toUserSid" />
+        <chat-text-field
+          :toUserSid="toUserSid"
+          @onMessageSent="scrollToBottom(30)"
+        />
       </view>
     </view>
   </view>
@@ -36,12 +39,22 @@ export default {
     return { toUserSid: {} };
   },
   methods: {
+    scrollToBottom(duration = 200) {
+      setTimeout(() => {
+        uni.pageScrollTo({
+          scrollTop: 9999,
+          duration,
+        });
+      }, 300);
+    },
     userMessageReceived() {
       // this.execute(UPDATE_OPPOSITE_USER_CHAT_MESSAGE_RECEIVED(this.toUserSid));
       onChatWithMessageRead(this.execute, this.$store, this.toUserSid);
+      this.scrollToBottom();
     },
   },
   onLoad(options) {
+    this.scrollToBottom();
     this.$appStateService.getUserProfile();
     const toUserSid = getRouterJsonParam(options, "toUserSid");
     this.toUserSid = toUserSid;

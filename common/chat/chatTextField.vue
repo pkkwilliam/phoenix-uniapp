@@ -52,6 +52,7 @@ export default {
           CREATE_CHAT_MESSAGE(this.toUserSid, requestBody)
         );
         updateMessages(this.$store, [response]);
+        this.$emit("onMessageSent");
         this.text = undefined;
       }
     },

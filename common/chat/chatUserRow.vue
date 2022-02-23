@@ -21,7 +21,6 @@ const MAX_CONTENT_LENGTH = 18;
 export default {
   computed: {
     hasUnreceived() {
-      console.log(this.userChat.messages);
       const { received } = this.userLastMessage();
       return !received;
     },

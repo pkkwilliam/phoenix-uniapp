@@ -421,14 +421,6 @@ export const DELETE_ITEM = (itemId) => ({
   url: USER_ITEM + `/${itemId}`,
 });
 
-export const GET_CREATED_ITEMS = (pageRequest, pageSize) => ({
-  authenticatedRequest: true,
-  method: GET_METHOD,
-  url:
-    USER_ITEM +
-    `/created_items_pagination?pageRequest=${pageRequest}&pageSize=${pageSize}`,
-});
-
 export const GET_ITEM = (itemId) => ({
   authenticatedRequest: false,
   method: GET_METHOD,
@@ -463,12 +455,17 @@ export const GET_ITEMS_BY_DESCRIPTION_LIKE = (
     `/query_description?descriptionLike=${descriptionLike}&pageRequest=${pageRequest}&pageSize=${pageSize}`,
 });
 
-export const GET_ITEMS_BY_USER_ID = (userSid, pageRequest, pageSize) => ({
+export const GET_ITEMS_BY_USER_ID = (
+  userSid,
+  itemStatuses,
+  pageRequest,
+  pageSize
+) => ({
   authenticatedRequest: false,
   method: GET_METHOD,
   url:
     PUBLIC_ITEM +
-    `/user/${userSid}?pageRequest=${pageRequest}&pageSize=${pageSize}`,
+    `/user/${userSid}?itemStatuses=${itemStatuses}&pageRequest=${pageRequest}&pageSize=${pageSize}`,
 });
 
 export const UPDATE_ITEM = (request) => ({

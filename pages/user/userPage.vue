@@ -1,7 +1,7 @@
 <template>
   <view class="container" :v-if="loaded">
     <view class="space-between-center-container medium-margin-top-spacer">
-      <u-avatar size="88" :src="userAvatarImageUrl" />
+      <u-avatar mode="aspectFill" size="88" :src="user.imageUrl" />
       <view class="column-center-container">
         <view class="row-center-container">
           <user-like-count-button class="user-interaction-button" />
@@ -69,6 +69,12 @@ import DisplayCurrencyFishCoin from "../../common/displayCurrency/displayCurrenc
 import ChatMessageButton from "../../components/navigationButton/chat/chatMessageButton.vue";
 import DislikeAuthorButton from "../../components/dislikeAuthor/dislikeAuthorButton.vue";
 import ItemStatusText from "../../components/item/itemStatusText.vue";
+import {
+  ITEM_STATUS_ACTIVE,
+  ITEM_STATUS_PENDING,
+  ITEM_STATUS_RESERVED,
+  ITEM_STATUS_SOLD,
+} from "../../enum/itemStatus";
 export default {
   components: {
     PaginationItemDisplay,
@@ -85,20 +91,23 @@ export default {
     DislikeAuthorButton,
     ItemStatusText,
   },
-  computed: {
-    userAvatarImageUrl() {
-      const { user } = this;
-      return user.imageUrl
-        ? user.imageUrl
-        : "https://www.pngitem.com/pimgs/m/10-102802_bear-icon-png-bear-emoticon-hd-png-download.png";
-    },
-  },
   data() {
     return { loaded: false, user: {} };
   },
   methods: {
     getItemsByUserId(pageRequest, pageSize) {
-      return GET_ITEMS_BY_USER_ID(this.user.sid, pageRequest, pageSize);
+      const itemStatuses = [
+        ITEM_STATUS_ACTIVE.key,
+        ITEM_STATUS_PENDING.key,
+        ITEM_STATUS_RESERVED.key,
+        ITEM_STATUS_SOLD.key,
+      ];
+      return GET_ITEMS_BY_USER_ID(
+        this.user.sid,
+        itemStatuses,
+        pageRequest,
+        pageSize
+      );
     },
     async getUserByUserSid(userSid) {
       this.user = await this.execute(GET_USER_PROFILE_BY_SID(userSid));

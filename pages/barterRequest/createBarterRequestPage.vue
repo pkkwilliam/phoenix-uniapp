@@ -70,14 +70,15 @@ import PaginationItemDisplay from "../../common/itemDisplayList/paginationItemDi
 import SelectableCheck from "../../common/selectableCheck.vue";
 import UserCardMini from "../../common/user/userCardMini.vue";
 import ApplicationLineBreaker from "../../components/applicationLineBreaker.vue";
+import { ITEM_STATUS_ACTIVE } from "../../enum/itemStatus";
 import {
   BARTER_REQUEST_DETAIL_PAGE,
   getRouterJsonParam,
 } from "../../route/applicationRoute";
 import {
   CREATE_BARTER_REQUEST,
-  GET_CREATED_ITEMS,
   GET_ITEM,
+  GET_ITEMS_BY_USER_ID,
 } from "../../service/service";
 export default {
   components: {
@@ -126,7 +127,13 @@ export default {
       });
     },
     getCreatedItemServiceRequest(pageRequest, pageSize) {
-      return GET_CREATED_ITEMS(pageRequest, pageSize);
+      const itemStatuses = [ITEM_STATUS_ACTIVE.key];
+      return GET_ITEMS_BY_USER_ID(
+        this.$store.state.userProfile.profile.sid,
+        itemStatuses,
+        pageRequest,
+        pageSize
+      );
     },
     offerItemContainItem(requestItem) {
       for (let index = 0; index < this.offerItems.length; index++) {
@@ -152,6 +159,9 @@ export default {
     this.item = await this.execute(GET_ITEM(itemId));
     this.loaded = true;
     this.offerItems = [];
+  },
+  onReachBottom() {
+    this.$refs.paginationItemDisplayRef.getServiceResponse();
   },
 };
 </script>

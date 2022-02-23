@@ -1,6 +1,6 @@
 <template>
   <view class="row-center-container" @click="onClick">
-    <u-avatar mode="aspectFill" size="28" :src="userAvatarImageUrl" />
+    <u-avatar mode="aspectFill" size="28" :src="user.imageUrl" />
     <text class="h5 secondary nickname-text">{{ userNickname }}</text>
     <u-icon
       class="icon"
@@ -17,12 +17,6 @@ import styles from "../../css/theme.js";
 export default {
   components: {},
   computed: {
-    userAvatarImageUrl() {
-      const { user } = this;
-      return user.imageUrl
-        ? user.imageUrl
-        : "https://www.pngitem.com/pimgs/m/10-102802_bear-icon-png-bear-emoticon-hd-png-download.png";
-    },
     userNickname() {
       const { user } = this;
       return user.nickname ? user.nickname : user.smsNumber;

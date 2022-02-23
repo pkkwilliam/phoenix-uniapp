@@ -2,11 +2,7 @@
   <view class="full-width">
     <view class="row-center-container" @click="onClick">
       <view>
-        <u-avatar
-          mode="aspectFill"
-          :size="avatarSize"
-          :src="userAvatarImageUrl"
-        />
+        <u-avatar mode="aspectFill" :size="avatarSize" :src="user.imageUrl" />
       </view>
       <view class="column-container text-container">
         <text class="h3 black">{{ userNickname }}</text>
@@ -30,12 +26,6 @@ import { LOGIN_PAGE, USER_PAGE } from "../../route/applicationRoute";
 export default {
   components: { PhoneNumberVerifiedTag, DislikeAuthorButton },
   computed: {
-    userAvatarImageUrl() {
-      const { user } = this;
-      return user.imageUrl
-        ? user.imageUrl
-        : "https://www.pngitem.com/pimgs/m/10-102802_bear-icon-png-bear-emoticon-hd-png-download.png";
-    },
     userDescription() {
       return this.user.description ?? "此人很多小祕密";
     },

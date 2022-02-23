@@ -6,7 +6,7 @@
         <text class="description">{{ userDescription }}</text>
       </view>
       <view>
-        <u-avatar mode="aspectFill" size="38" :src="userAvatarImageUrl" />
+        <u-avatar mode="aspectFill" size="38" :src="user.imageUrl" />
       </view>
     </view>
     <u-tag text="電話已認證" type="success" />
@@ -16,12 +16,6 @@
 <script>
 export default {
   computed: {
-    userAvatarImageUrl() {
-      const { user } = this;
-      return user.imageUrl
-        ? user.imageUrl
-        : "https://www.pngitem.com/pimgs/m/10-102802_bear-icon-png-bear-emoticon-hd-png-download.png";
-    },
     userDescription() {
       return this.user.description;
     },

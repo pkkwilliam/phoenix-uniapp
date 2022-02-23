@@ -1,7 +1,7 @@
 <template>
   <view class="personal-info-container">
     <view class="avatar-container">
-      <u-avatar mode="aspectFill" size="38" :src="userAvatarImageUrl" />
+      <u-avatar mode="aspectFill" size="38" :src="user.imageUrl" />
     </view>
     <view class="text-container">
       <text class="nickname">{{ userNickname }}</text>
@@ -13,12 +13,6 @@
 <script>
 export default {
   computed: {
-    userAvatarImageUrl() {
-      const { user } = this;
-      return user.imageUrl
-        ? user.imageUrl
-        : "https://www.pngitem.com/pimgs/m/10-102802_bear-icon-png-bear-emoticon-hd-png-download.png";
-    },
     userNickname() {
       const { user } = this;
       return user.nickname ? user.nickname : user.sid;
