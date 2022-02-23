@@ -34,7 +34,7 @@ let store = new Vuex.Store({
     },
     chatWebSocket: {
       dirty: true,
-      refreshTime: 5000,
+      refreshTime: 10000,
     },
     sellerPendingOrder: {
       dirty: true,
