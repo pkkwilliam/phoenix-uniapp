@@ -2,7 +2,7 @@
   <view class="sticky-bottom-container-padding">
     <view class="container">
       <chat-content
-        class="medium-margin-top-spacer"
+        class="medium-margin-bottom-spacer medium-margin-top-spacer"
         v-for="(chatMessage, index) in chatMessages"
         :chatMessage="chatMessage"
         :chatWith="chatWith"
@@ -42,7 +42,7 @@ export default {
     scrollToBottom(duration = 200) {
       setTimeout(() => {
         uni.pageScrollTo({
-          scrollTop: 9999,
+          scrollTop: 99999,
           duration,
         });
       }, 300);
