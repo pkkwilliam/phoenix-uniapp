@@ -11,7 +11,7 @@
       >
         <view class="space-between-center-container">
           <text class="h4">ID: {{ business.id }}</text>
-          <text class="h4">{{
+          <text class="h4 orange">{{
             getBusinessStatus(business.businessStatus)
           }}</text>
         </view>

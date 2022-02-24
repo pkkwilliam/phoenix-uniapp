@@ -29,7 +29,7 @@
     </view>
     <u-divider :half-width="500" :use-slot="false" />
     <view class="row-center-container">
-      <text class="h4">出手價</text>
+      <text class="h4">估值🐟</text>
       <u-input
         border="none"
         class="textfield"

@@ -81,10 +81,10 @@
 
       <view class="small-margin-top-spacer">
         <view class="space-between-center-container">
-          <icon-sub-header iconName="rmb-circle" label="價格" />
+          <text class="h3">估值</text>
           <view class="row-center-container" @click="onToggleCostInput">
             <view class="row-center-container medium-margin-right-spacer">
-              <text class="h3 green" v-if="isPriceZero">保護環境 以物換物</text>
+              <text class="h3 green">保護環境 以物換物</text>
             </view>
             <display-currency-fish-coin :value="displayPrice" />
             <u-icon name="arrow-right" color="#a3a3a3" :size="12" />
@@ -184,9 +184,6 @@ export default {
     },
     getCategory() {
       return this.selectedCategory;
-    },
-    isPriceZero() {
-      return this.deliveryTypeAndShippingCharge.price === 0;
     },
     submitLabel() {
       if (this.selectedMedia.inProgress) {
