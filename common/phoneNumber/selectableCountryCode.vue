@@ -1,6 +1,6 @@
 <template>
   <view>
-    <text @click="show = true">{{ selectedCountryCode }}</text>
+    <text class="h4" @click="show = true">{{ selectedCountryCode }}</text>
     <u-picker
       confirmText="確認"
       keyName="label"

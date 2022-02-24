@@ -19,7 +19,7 @@ import ApplicationIcon from "../../common/icon/applicationIcon.vue";
 import {
   ADDRESS_SELECTION_PAGE,
   BUSINESS_PAGE,
-  REFILL_INFO_PAGE,
+  TOP_UP_INFO_PAGE,
 } from "../../route/applicationRoute";
 import ApplicationLineBreaker from "../applicationLineBreaker.vue";
 
@@ -41,7 +41,7 @@ export default {
           label: "申請企業賬號",
           toPage: BUSINESS_PAGE,
         },
-        { iconName: "refill", label: "充值方法", toPage: REFILL_INFO_PAGE },
+        // { iconName: "refill", label: "充值方法", toPage: TOP_UP_INFO_PAGE },
       ];
     },
   },

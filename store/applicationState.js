@@ -5,6 +5,10 @@ Vue.use(Vuex);
 
 let store = new Vuex.Store({
   state: {
+    appConfig: {
+      content: {},
+      lastRefresh: undefined,
+    },
     address: {
       dirty: true,
       content: [],
@@ -61,6 +65,12 @@ let store = new Vuex.Store({
     },
   },
   mutations: {
+    setAppConfig(state, appConfig) {
+      state.appConfig = {
+        content: appConfig,
+        lastRefresh: new Date(),
+      };
+    },
     setAddress(state, addresses) {
       state.address = {
         dirty: false,

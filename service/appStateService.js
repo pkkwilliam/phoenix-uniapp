@@ -1,5 +1,7 @@
+import { hoursDifference } from "../util/dateUtil";
 import {
   GET_ADDRESS_ALL,
+  GET_APP_CONFIG,
   GET_BANK_ACCOUNT_ALL,
   GET_BARTER_REQUEST_SUMMARY,
   GET_BUSINESS_ALL,
@@ -28,6 +30,26 @@ export default class AppStateService {
 
   get store() {
     return this._store;
+  }
+
+  getAppConfig({ force = false } = {}) {
+    const { content, lastRefresh } = this.store.state.appConfig;
+    let refresh = false;
+    if (!content) {
+      refresh = true;
+    } else if (hoursDifference(lastRefresh) > content.refreshHourRate) {
+      refresh = true;
+    }
+    return new Promise((resolve, reject) => {
+      if (refresh || force) {
+        this.execute(GET_APP_CONFIG()).then((appConfig) => {
+          this.store.commit("setAppConfig", appConfig);
+          return resolve(appConfig);
+        });
+      } else {
+        return resolve(content);
+      }
+    });
   }
 
   getAddress({ force = false } = {}) {

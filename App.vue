@@ -45,28 +45,6 @@ export default {
           } else {
             console.log("update not required ");
           }
-          // if (data.update && data.wgtUrl) {
-          //   uni.downloadFile({
-          //     url: data.wgtUrl,
-          //     success: (downloadResult) => {
-          //       if (downloadResult.statusCode === 200) {
-          //         plus.runtime.install(
-          //           downloadResult.tempFilePath,
-          //           {
-          //             force: true,
-          //           },
-          //           function () {
-          //             console.log("install success...");
-          //             plus.runtime.restart();
-          //           },
-          //           function (e) {
-          //             console.error("install fail...");
-          //           }
-          //         );
-          //       }
-          //     },
-          //   });
-          // }
         },
       });
     });

@@ -85,7 +85,6 @@ export const PAYMENT_SELECTION_PAGE = (order) => ({
 });
 export const PARCEL_LIST_PAGE = () => ({ url: "/pages/parcelListPage" });
 export const PICKUP_CODE_PAGE = () => ({ url: "/pages/pickupCodePage" });
-export const REFILL_INFO_PAGE = () => ({ url: "/pages/refill/refillInfoPage" });
 export const REGISTER_PAGE = () => ({ url: "/pages/registerPage" });
 export const SELLER_ORDER_DETAIL_PAGE = (orderObject) => ({
   url:
@@ -122,6 +121,7 @@ export const SEARCH_ITEM_PAGE = () => ({
 export const SHIPPING_COST_ESTIMATE_PAGE = () => ({
   url: "/pages/shipping/shippingCostEstimatePage",
 });
+export const TOP_UP_INFO_PAGE = () => ({ url: "/pages/topUp/topUpInfoPage" });
 export const WORKBENCH_PAGE = () => ({
   url: "/pages/workbenchPage",
 });

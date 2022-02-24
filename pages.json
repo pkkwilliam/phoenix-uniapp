@@ -244,7 +244,7 @@
       }
     },
     {
-      "path": "pages/refill/refillInfoPage",
+      "path": "pages/topUp/topUpInfoPage",
       "style": {
         "navigationBarTitleText": "充值方法"
       }
@@ -743,10 +743,10 @@
     }
   },
   "globalStyle": {
-	"backgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "摸魚",
     "navigationBarBackgroundColor": "#FFFFFF",
-	"scrollIndicator": "none"
+    "scrollIndicator": "none"
   }
 }
