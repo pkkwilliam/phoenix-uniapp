@@ -47,6 +47,7 @@ const MESSAGE_PAGE_TAB = "MESSAGE_PAGE_TAB";
 const MY_PAGE_TAB = "MY_PAGE_TAB";
 
 import { CREATE_ITEM_TAB, LOGIN_PAGE } from "../../route/applicationRoute";
+import { executeAppConfig } from "../../util/appConfigUtil";
 import BarterRequestPage from "../barterRequest/barterRequestPage.vue";
 import ChatPage from "../chat/chatPage.vue";
 import DeveloperPage from "../developer/developerPage.vue";
@@ -113,6 +114,10 @@ export default {
         this.page = page;
       }
     },
+  },
+  async onShow() {
+    console.log("tabbar show");
+    executeAppConfig((version) => this.$appStateService.getAppConfig(version));
   },
 };
 </script>

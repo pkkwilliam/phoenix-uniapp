@@ -32,17 +32,18 @@ export default class AppStateService {
     return this._store;
   }
 
-  getAppConfig({ force = false } = {}) {
+  getAppConfig(currentVersion, { force = false } = {}) {
     const { content, lastRefresh } = this.store.state.appConfig;
     let refresh = false;
-    if (!content) {
+    if (!lastRefresh) {
       refresh = true;
-    } else if (hoursDifference(lastRefresh) > content.refreshHourRate) {
+    } else if (hoursDifference(lastRefresh) > content.refreshHourInterval) {
       refresh = true;
     }
+    console.log("appConfig Service Refresh:", refresh);
     return new Promise((resolve, reject) => {
       if (refresh || force) {
-        this.execute(GET_APP_CONFIG()).then((appConfig) => {
+        this.execute(GET_APP_CONFIG(currentVersion)).then((appConfig) => {
           this.store.commit("setAppConfig", appConfig);
           return resolve(appConfig);
         });

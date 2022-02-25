@@ -1,53 +1,51 @@
 <script>
 import Vue from "vue";
-import { GET_APP_CONFIG } from "./service/service";
-import { getServiceUrl } from "./util/appConfigUtil";
 export default {
   onLaunch: function () {
     console.log("onLaunch");
     // Hot Update
-    plus.runtime.getProperty(plus.runtime.appid, function (widgetInfo) {
-      console.log("check update");
-      console.log(widgetInfo);
-      const serviceUrl = getServiceUrl();
-      console.log("service url:", serviceUrl);
-      const { version, versionCode } = widgetInfo;
-      const { url } = GET_APP_CONFIG(version);
-      console.log(serviceUrl + url);
-      uni.request({
-        url: serviceUrl + url,
-        success: (result) => {
-          var { hotUpdateUrl, requireMajorUpdate, requireHotUpdate, version } =
-            result.data;
-          if (requireHotUpdate && hotUpdateUrl) {
-            console.log("app version behind, attempt to update");
-            uni.downloadFile({
-              url: hotUpdateUrl,
-              success: (downloadResult) => {
-                const { statusCode, tempFilePath } = downloadResult;
-                if (statusCode === 200) {
-                  plus.runtime.install(
-                    tempFilePath,
-                    { force: true },
-                    function () {
-                      console.log("install update success...");
-                      plus.runtime.restart();
-                    },
-                    function (e) {
-                      console.error("install update fail...");
-                    }
-                  );
-                }
-              },
-              fail: (error) =>
-                console.log("failed to download update file", error),
-            });
-          } else {
-            console.log("update not required ");
-          }
-        },
-      });
-    });
+    // plus.runtime.getProperty(plus.runtime.appid, function (widgetInfo) {
+    //   console.log("check update");
+    //   console.log(widgetInfo);
+    //   const serviceUrl = getServiceUrl();
+    //   console.log("service url:", serviceUrl);
+    //   const { version, versionCode } = widgetInfo;
+    //   const { url } = GET_APP_CONFIG(version);
+    //   console.log(serviceUrl + url);
+    //   uni.request({
+    //     url: serviceUrl + url,
+    //     success: (result) => {
+    //       var { hotUpdateUrl, requireMajorUpdate, requireHotUpdate, version } =
+    //         result.data;
+    //       if (requireHotUpdate && hotUpdateUrl) {
+    //         console.log("app version behind, attempt to update");
+    //         uni.downloadFile({
+    //           url: hotUpdateUrl,
+    //           success: (downloadResult) => {
+    //             const { statusCode, tempFilePath } = downloadResult;
+    //             if (statusCode === 200) {
+    //               plus.runtime.install(
+    //                 tempFilePath,
+    //                 { force: true },
+    //                 function () {
+    //                   console.log("install update success...");
+    //                   plus.runtime.restart();
+    //                 },
+    //                 function (e) {
+    //                   console.error("install update fail...");
+    //                 }
+    //               );
+    //             }
+    //           },
+    //           fail: (error) =>
+    //             console.log("failed to download update file", error),
+    //         });
+    //       } else {
+    //         console.log("update not required ");
+    //       }
+    //     },
+    //   });
+    // });
 
     uni.getSystemInfo({
       success: function (e) {
